@@ -19,4 +19,12 @@ angular.module('app.controllers', [])
 .controller('profileCtrl', function($scope) {
 
 })
-    
+   
+.controller('orderCtrl', function($scope) {
+
+})
+   
+.controller('mainCtrl', function($scope) {
+
+})
+ 

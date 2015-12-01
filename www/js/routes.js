@@ -40,38 +40,42 @@ angular.module('app.routes', [])
     
       
         
-    .state('tabsController.cart', {
+    .state('cart', {
       url: '/page5',
-      views: {
-        'tab2': {
-          templateUrl: 'templates/cart.html',
-          controller: 'cartCtrl'
-        }
-      }
+      templateUrl: 'templates/cart.html',
+      controller: 'cartCtrl'
     })
         
       
     
       
         
-    .state('tabsController.profile', {
+    .state('profile', {
       url: '/page6',
-      views: {
-        'tab3': {
-          templateUrl: 'templates/profile.html',
-          controller: 'profileCtrl'
-        }
-      }
+      templateUrl: 'templates/profile.html',
+      controller: 'profileCtrl'
     })
         
       
     
       
-    .state('tabsController', {
-      url: '/page3',
-      abstract:true,
-      templateUrl: 'templates/tabsController.html'
+        
+    .state('order', {
+      url: '/page7',
+      templateUrl: 'templates/order.html',
+      controller: 'orderCtrl'
     })
+        
+      
+    
+      
+        
+    .state('main', {
+      url: '/page8',
+      templateUrl: 'templates/main.html',
+      controller: 'mainCtrl'
+    })
+        
       
     ;
 
