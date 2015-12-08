@@ -56,9 +56,37 @@ angular.module('app.routes', [])
       templateUrl: 'templates/main.html',
       controller: 'mainCtrl'
     })
+
+    // DELIVERY页面
+    .state('delivery',{
+      url: '/pageDelivery',
+      templateUrl:'templates/delivery.html',
+      controller:'deliveryCtrl'
+    })
+
+    // ABOUT页面
+    .state('about',{
+      url: '/pageAbout',
+      templateUrl:'templates/about.html',
+      controller:'aboutCtrl'
+    })
+
+    // CONTACT页面
+    .state('contact',{
+      url: '/pageContact',
+      templateUrl:'templates/contact.html',
+      controller:'contactCtrl'
+    })
+
+    // list页面
+    .state('list',{
+      url: '/pageList/:aId',
+      templateUrl:'templates/list.html',
+      controller:'listCtrl'
+    })
     ;
 
-  // if none of the above states are matched, use this as the fallback
+  // 默认页面
   $urlRouterProvider.otherwise('/page1');
 
 });
