@@ -20,3 +20,75 @@
   width: 300px;
   height: 15px;
 }
+
+.total-banner-up{
+  width: 100%;
+  height: 180px;
+  background: url("../img/suites-s.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.total-banner-center{
+  width: 100%;
+  height: 180px;
+  background: url("../img/t-shirt-s.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.total-banner-cel-right{
+  width: 100%;
+  height: 180px;
+  background: url("../img/winter-s.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.total-banner-cel-left{
+  width: 100%;
+  height: 180px;
+  background: url("../img/dress-s.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.total-banner-cells-p{
+  background-color: #dedede;
+  width: 100%;
+  height: 180px;
+  color: #000;
+  padding: 30px;
+}
+
+.total-banner-p {
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.total-banner-up-ps {
+  margin-top: 90px;
+}
+
+.total-banner-cel{
+  width: 100%;
+  height: 180px;
+  background-color: #000;
+  color: #fff;
+  padding: 30px;
+  border-right: solid 10px #ffffff;
+}
+
+.total-banner-row{
+  margin-bottom: 10px;
+}
