@@ -1,5 +1,24 @@
 <ion-view title="Mall Labby">
+
+    <!--左边设置菜单 -->
+    <ion-nav-buttons side="secondary">
+      <a class="button button-icon ion-gear-a" href="#/pageSetting"></a>
+    </ion-nav-buttons>
+
+    <!--下拉菜单 -->
+    <ion-nav-buttons side="primary">
+      <button class="button button-icon ion-navicon"></button>
+    </ion-nav-buttons>
+
     <ion-content padding="'true'" class="has-header">
+
+      <!--搜索栏 -->
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" ng-model="query" placeholder="Search">
+        </label>
+      </div>
 
       <!--顶边BANNER-->
       <a class="total-button row total-banner-row" menu-close="" href="#/pageList/{{'suites'}}">
@@ -40,4 +59,5 @@
       </div>
 
     </ion-content>
+
 </ion-view>

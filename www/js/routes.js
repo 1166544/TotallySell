@@ -84,6 +84,13 @@ angular.module('app.routes', [])
       templateUrl:'templates/list.html',
       controller:'listCtrl'
     })
+
+    // 设置页面
+    .state('setting',{
+      url: '/pageSetting',
+      templateUrl:'templates/setting.html',
+      controller:'settingCtrl'
+    })
     ;
 
   // 默认页面

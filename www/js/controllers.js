@@ -40,6 +40,10 @@ angular.module('app.controllers', [])
 
 })
 
+.controller('settingCtrl', function($scope) {
+
+})
+
 // LIST列表处理器
 .controller('listCtrl', ['$scope', '$state', function($scope, $state) {
     console.log($state.params.aId);
