@@ -8,6 +8,52 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+    .state('tab', {
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'templates/tabs.html'
+    })
+
+    .state('tab.dash', {
+      url: '/dash',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-dash.html',
+          controller: 'DashCtrl'
+        }
+      }
+    })
+
+    .state('tab.social', {
+      url: '/social',
+      views: {
+        'tab-social': {
+          templateUrl: 'templates/tab-social.html',
+          controller: 'SocialCtrl'
+        }
+      }
+    })
+
+    .state('tab.cart', {
+      url: '/cart',
+      views: {
+        'tab-cart': {
+          templateUrl: 'templates/tab-cart.html',
+          controller: 'CartCtrl'
+        }
+      }
+    })
+
+    .state('tab.profile', {
+      url: '/profile',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/tab-profile.html',
+          controller: 'ProfileCtrl'
+        }
+      }
+    })
+
     // 登录页面
     .state('login', {
       url: '/page1',
@@ -22,18 +68,55 @@ angular.module('app.routes', [])
       controller: 'signupCtrl'
     })
 
-    // 商城页面
-    .state('shop', {
-      url: '/page4',
-      templateUrl: 'templates/shop.html',
-      controller: 'shopCtrl'
-    })
-
     // 购物车页面
     .state('cart', {
       url: '/page5',
-      templateUrl: 'templates/cart.html',
+      templateUrl: 'templates/tab-tab-cart.html',
       controller: 'cartCtrl'
+    })
+
+    // DELIVERY页面
+    .state('tab.delivery', {
+      url: '/pageDelivery',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/delivery.html',
+          controller: 'deliveryCtrl'
+        }
+      }
+    })
+
+    // ABOUT页面
+    .state('tab.about',{
+      url: '/pageAbout',
+      views:{
+        'tab-dash':{
+          templateUrl:'templates/about.html',
+          controller:'aboutCtrl'
+        }
+      }
+    })
+
+    // CONTACT页面
+    .state('tab.contact',{
+      url: '/pageContact',
+      views:{
+        'tab-dash':{
+          templateUrl:'templates/contact.html',
+          controller:'contactCtrl'
+        }
+      }
+    })
+
+    // list页面
+    .state('tab.list',{
+      url: '/pageList/:aId',
+      views:{
+        'tab-dash':{
+          templateUrl:'templates/list.html',
+          controller:'listCtrl'
+        }
+      }
     })
 
     // 用户设置页面
@@ -48,48 +131,6 @@ angular.module('app.routes', [])
       url: '/page7',
       templateUrl: 'templates/order.html',
       controller: 'orderCtrl'
-    })
-
-    // 主页面
-    .state('main', {
-      url: '/page8',
-      templateUrl: 'templates/main.html',
-      controller: 'mainCtrl'
-    })
-
-    // DELIVERY页面
-    .state('delivery',{
-      url: '/pageDelivery',
-      templateUrl:'templates/delivery.html',
-      controller:'deliveryCtrl'
-    })
-
-    // ABOUT页面
-    .state('about',{
-      url: '/pageAbout',
-      templateUrl:'templates/about.html',
-      controller:'aboutCtrl'
-    })
-
-    // CONTACT页面
-    .state('contact',{
-      url: '/pageContact',
-      templateUrl:'templates/contact.html',
-      controller:'contactCtrl'
-    })
-
-    // list页面
-    .state('list',{
-      url: '/pageList/:aId',
-      templateUrl:'templates/list.html',
-      controller:'listCtrl'
-    })
-
-    // 设置页面
-    .state('setting',{
-      url: '/pageSetting',
-      templateUrl:'templates/setting.html',
-      controller:'settingCtrl'
     })
     ;
 
