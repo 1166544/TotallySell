@@ -69,6 +69,14 @@
   padding: 30px;
 }
 
+.total-banner-title-p{
+  width: 100%;
+  height: 60px;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 20px 20px 50px 20px;
+}
+
 .total-banner-p {
   padding: 10px;
   font-size: 1.2rem;
@@ -111,12 +119,12 @@
   text-decoration: none;
 }
 .total-button.active,
-.total-button.activated {  }
+.total-button.activated {}
 .total-button:after {}
-
 .total-button-black {
   color: #fff;
 }
 .total-button-black:hover {
   color: #fff;
 }
+
