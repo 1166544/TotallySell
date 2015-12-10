@@ -1,3 +1,65 @@
 <ion-view title="Cart">
-    <ion-content padding="'true'" class="has-header"></ion-content>
+
+  <!--左边设置菜单 -->
+  <ion-nav-buttons side="secondary">
+    <a class="button button-icon ion-ios-compose-outline" href="#/tab/edit">EDIT</a>
+  </ion-nav-buttons>
+
+    <ion-content>
+      <ion-list>
+
+        <ion-item class="item item-thumbnail-left item-text-wrap" href="#">
+          <img src="img/ps-1.png">
+          <div class="row">
+            <div class="col col-75">
+              <p class="total-cart-title">Staturn</p>
+              <p class="total-cart-quality">3</p>
+            </div>
+            <div class="col">
+              <h3 class="total-cart-size total-cart-size-s">S</h3>
+              <p class="total-cart-price">$45</p>
+            </div>
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-thumbnail-left item-text-wrap" href="#">
+          <img src="img/ps-3.png">
+          <div class="row">
+            <div class="col col-75">
+              <p class="total-cart-title">Adidas T-shirt</p>
+              <p class="total-cart-quality">5</p>
+            </div>
+            <div class="col">
+              <h3 class="total-cart-size total-cart-size-m">M</h3>
+              <p class="total-cart-price">$33</p>
+            </div>
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-thumbnail-left item-text-wrap" href="#">
+          <img src="img/ps-2.png">
+          <div class="row">
+            <div class="col col-75">
+              <p class="total-cart-title">GUUCI Clothes</p>
+              <p class="total-cart-quality">8</p>
+            </div>
+            <div class="col">
+              <h3 class="total-cart-size total-cart-size-b">B</h3>
+              <p class="total-cart-price">$200</p>
+            </div>
+          </div>
+        </ion-item>
+
+      </ion-list>
+
+      <div class="row">
+        <div class="col col-75">
+          <p class="total-all-price">Total</p>
+        </div>
+        <div class="col">
+          <p class="total-all-cash">$380</p>
+        </div>
+      </div>
+
+    </ion-content>
 </ion-view>
