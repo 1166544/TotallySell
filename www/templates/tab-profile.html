@@ -1,9 +1,100 @@
 <ion-view view-title="Profile">
   <ion-content>
+
+    <div class="total-profile-header"></div>
+
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
+      <div class="item item-divider">
+        BASIC Information
+      </div>
+
+      <li class="item item-toggle">
+        <i class="icon ion-location calm"></i>
+        Geolocalisation service
+        <label class="toggle toggle-calm">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+
+      <li class="item item-toggle">
+        <i class="icon ion-chatbubble-working calm"></i>
+        Message service
+        <label class="toggle toggle-calm">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+
+      <li class="item item-toggle">
+        <i class="icon ion-social-whatsapp-outline calm"></i>
+        Call Enable
+        <label class="toggle toggle-calm">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+
+      <!--占位符-->
+      <div class="row">
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+      </div>
+
+      <div class="item item-divider">
+        SHOP Information
+      </div>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">First name</span>
+        <input type="text" placeholder="John">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Last name</span>
+        <input type="text" placeholder="Smith.w">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+        <input type="text" placeholder="john@suhr.com">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Phone</span>
+        <input type="tel" placeholder="0123456789">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Address</span>
+        <input type="text" placeholder="Your address here">
+      </label>
+
     </ion-list>
+
+    <!--占位符-->
+    <div class="row">
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+    </div>
+
+    <!--更新按钮-->
+    <button class="button button-block button-calm">
+      Update
+    </button>
+
   </ion-content>
 </ion-view>

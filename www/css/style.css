@@ -138,14 +138,6 @@
 .total-cart-quality
 {
   border:dashed 0px #ffffff;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright:5px;
-  -moz-border-radius-bottomleft:5px;
-  -moz-border-radius-bottomright:5px;
-  -webkit-border-top-left-radius:5px;
-  -webkit-border-top-right-radius:5px;
-  -webkit-border-bottom-left-radius:5px;
-  -webkit-border-bottom-right-radius:5px;
   border-top-left-radius:5px;
   border-top-right-radius:5px;
   border-bottom-left-radius:5px;
@@ -160,20 +152,12 @@
 }
 .total-cart-size{
   border:dashed 0px #ffffff;
-  -moz-border-radius-topleft: 15px;
-  -moz-border-radius-topright:15px;
-  -moz-border-radius-bottomleft:15px;
-  -moz-border-radius-bottomright:15px;
-  -webkit-border-top-left-radius:15px;
-  -webkit-border-top-right-radius:15px;
-  -webkit-border-bottom-left-radius:15px;
-  -webkit-border-bottom-right-radius:15px;
   border-top-left-radius:15px;
   border-top-right-radius:15px;
   border-bottom-left-radius:15px;
   border-bottom-right-radius:15px;
   background-color: #d3f2e0;
-  width: 50px;
+  width: 40px;
   height: 25px;
   text-align: center;
   padding-top: 5px;
@@ -194,9 +178,10 @@
   font-weight: bold;
   margin-top: 24px;
 }
-.total-all-price{
 
+.total-profile-header{
+  background: url(../img/winter-b.png) no-repeat top;
+  width: 100%;
+  height: 100px;
 }
-.total-all-cash{
 
-}
