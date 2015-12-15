@@ -118,6 +118,15 @@ angular.module('app.routes', [])
         }
       }
     })
+    .state('tab.detail',{
+      url: '/pageDetail/:aId',
+      views:{
+        'tab-dash':{
+          templateUrl:'templates/list-details.html',
+          controller:'listDetailCtrl'
+        }
+      }
+    })
 
     // 用户设置页面
     .state('profile', {

@@ -234,3 +234,28 @@
   color: dodgerblue;
 }
 
+.list-detail-col-right{
+  background-color: lightblue;
+}
+
+.list-detail-col-left{
+  background-color: lightpink;
+}
+
+.list-detail-item{
+  padding: 0px;
+  margin: 0px;
+}
+
+.list-detail-text{
+  border: none;
+}
+
+.list-bar-content{
+  margin-top: 20px;
+}
+
+.list-agree-right{
+  padding-left: 20px;
+}
+

@@ -64,3 +64,6 @@ angular.module('app.controllers', [])
 .controller('listCtrl', ['$scope', '$state', function($scope, $state) {
     console.log($state.params.aId);
 }])
+.controller('listDetailCtrl', ['$scope', '$state', function($scope, $state) {
+    console.log($state.params.aId);
+}])

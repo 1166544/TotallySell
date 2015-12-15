@@ -1,57 +1,66 @@
 <ion-view title="List">
     <ion-content padding="'true'" class="has-header" does-continue="true" auto-play="true">
 
-      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <ion-slide-box show-pager="true" auto-play="true">
         <ion-slide>
-          <img class="total-side-box" src="../img/banner-1.png">
+          <a href="#tab/pageDetail/{{'banner-1'}}"><img class="total-side-box" src="../img/banner-1.png"></a>
         </ion-slide>
         <ion-slide>
-          <img class="total-side-box" src="../img/dress-b.png">
+          <a href="#tab/pageDetail/{{'dress-b.png'}}"><img class="total-side-box" src="../img/dress-b.png"></a>
         </ion-slide>
         <ion-slide>
-          <img class="total-side-box" src="../img/suits-b.png">
+          <a href="#tab/pageDetail/{{'suits-b'}}"><img class="total-side-box" src="../img/suits-b.png"></a>
         </ion-slide>
         <ion-slide>
-          <img class="total-side-box" src="../img/t-shirt-b.png">
+          <a href="#tab/pageDetail/{{'t-shirt-b'}}"><img class="total-side-box" src="../img/t-shirt-b.png"></a>
         </ion-slide>
       </ion-slide-box>
 
       <div class="total-list-box">
-        <div class="total-list-item">
-          <img src="../img/p1.png">
-          <h1>Skull with snake</h1>
-          <div class="total-item-title">
-            <p class="total-item-title-left">T-shirt</p>
-            <p class="total-item-title-right">$45</p>
-          </div>
-        </div>
 
-        <div class="total-list-item">
-          <img src="../img/p2.png">
-          <h1>Skull with light</h1>
-          <div class="total-item-title">
-            <p class="total-item-title-left">Fashionable</p>
-            <p class="total-item-title-right">$115</p>
+        <a href="#tab/pageDetail/{{'p1'}}">
+          <div class="total-list-item">
+            <img src="../img/p1.png">
+            <h1>Skull with snake</h1>
+            <div class="total-item-title">
+              <p class="total-item-title-left">T-shirt</p>
+              <p class="total-item-title-right">$45</p>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="total-list-item">
-          <img src="../img/p3.png">
-          <h1>Skull with Fork</h1>
-          <div class="total-item-title">
-            <p class="total-item-title-left">Popular</p>
-            <p class="total-item-title-right">$68</p>
+        <a href="#tab/pageDetail/{{'p2'}}">
+          <div class="total-list-item">
+            <img src="../img/p2.png">
+            <h1>Skull with light</h1>
+            <div class="total-item-title">
+              <p class="total-item-title-left">Popular</p>
+              <p class="total-item-title-right">$95</p>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="total-list-item">
-          <img src="../img/p4.png">
-          <h1>Skull with Fighger</h1>
-          <div class="total-item-title">
-            <p class="total-item-title-left">Young</p>
-            <p class="total-item-title-right">$88</p>
+        <a href="#tab/pageDetail/{{'p3'}}">
+          <div class="total-list-item">
+            <img src="../img/p3.png">
+            <h1>Skull with Fork</h1>
+            <div class="total-item-title">
+              <p class="total-item-title-left">Popular</p>
+              <p class="total-item-title-right">$68</p>
+            </div>
           </div>
-        </div>
+        </a>
+
+        <a href="#tab/pageDetail/{{'p4'}}">
+          <div class="total-list-item">
+            <img src="../img/p4.png">
+            <h1>Skull with Fighger</h1>
+            <div class="total-item-title">
+              <p class="total-item-title-left">Young</p>
+              <p class="total-item-title-right">$88</p>
+            </div>
+          </div>
+        </a>
 
       </div>
 
