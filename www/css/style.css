@@ -259,3 +259,17 @@
   padding-left: 20px;
 }
 
+.item-develiry-left{
+  padding-left: 23px;
+  font-weight: bold;
+}
+
+.item-develiry-left span{
+  font-weight: normal;
+}
+
+.item-develiry-img{
+  padding: 0px;
+  height: 100px;
+}
+
