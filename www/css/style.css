@@ -273,3 +273,44 @@
   height: 100px;
 }
 
+.contact-item{
+  background: url(../img/v-line.png) no-repeat left;
+  width: 100%;
+  height: 521px;
+  border: none;
+  padding-top: 0px;
+  margin-top: 15px;
+}
+
+.iem-septar{
+  height: 180px;
+}
+
+.item-conten-dir{
+  padding: 0 0 0 20px;
+}
+
+.item-title-left{
+  width: 200px;
+  height: 50px;
+  display: block;
+  float: left;
+  color: #000;
+}
+
+.item-title-right{
+  width: 100px;
+  height: 50px;
+  display: block;
+  float: right;
+  color: #999;
+  font-weight: bold;
+  padding: 0 0 0 0;
+  margin: 0;
+}
+
+.item-title-content-p{
+  clear: both;
+  color: #333;
+  padding: 0 0 0 20px;
+}
