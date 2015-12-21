@@ -8,16 +8,16 @@
             <div class="spacer totally-spacer"></div>
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input type="text" placeholder="">
+                    <span class="input-label">USER NAME</span>
+                    <input type="text" placeholder="" ng-model="loginData.userName">
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input type="password" placeholder="">
+                    <span class="input-label">PASSWORD</span>
+                    <input type="password" placeholder="" ng-model="loginData.password">
                 </label>
             </ion-list>
             <div class="spacer totally-spacer-bottom"></div>
-            <a menu-close="" href="#/tab/dash" class="button button-calm button-block  icon ion-log-in button-full"> Log in</a>
+            <a menu-close="" class="button button-calm button-block  icon ion-log-in button-full" ng-click="doLogin()"> Log in</a>
             <a menu-close="" href="#/page2" class="button button-dark button-clear button-block ">Or create an account</a>
         </form>
     </ion-content>

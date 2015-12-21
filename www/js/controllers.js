@@ -1,7 +1,15 @@
 angular.module('app.controllers', [])
 
-.controller('loginCtrl', function($scope) {
+// 登录页面模块
+.controller('loginCtrl', function($scope, $state)
+  {
+    $scope.loginData = {userName:"", password:""};
 
+    $scope.doLogin = function(){
+      if($scope.loginData.userName == "xxd" && $scope.loginData.password == "xxd"){
+        $state.go("tab.dash");
+      }
+    }
 })
 
 .controller('signupCtrl', function($scope) {
