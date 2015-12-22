@@ -5,11 +5,6 @@
     <a class="button button-icon ion-log-out" href="#/login"></a>
   </ion-nav-buttons>
 
-  <!--下拉菜单 -->
-  <!--<ion-nav-buttons side="primary">-->
-  <!--<button class="button button-icon ion-navicon"></button>-->
-  <!--</ion-nav-buttons>-->
-
   <ion-content padding="'true'" class="has-header">
 
     <!--搜索栏 -->
@@ -21,30 +16,30 @@
     </div>
 
     <!--顶边BANNER-->
-    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{'suites'}}">
+    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{topItemData.link}}">
       <div class="row total-banner-row">
         <div class="col total-banner-up">
-          <p class="total-banner-p">SUITES</p>
-          <p class="total-banner-p total-banner-up-ps">40 ITEMS</p>
+          <p class="total-banner-p">{{topItemData.name}}</p>
+          <p class="total-banner-p total-banner-up-ps">{{topItemData.quality | itemUnion}}</p>
         </div>
       </div>
     </a>
 
     <div class="row total-banner-row">
       <div class="col total-banner-cel">
-        <p><a class="total-button total-button-black" menu-close="" href="#tab/pageList/{{'men'}}">FOR MEN</a></p>
-        <p><a class="total-button total-button-black" menu-close="" href="#tab/pageList/{{'women'}}">FOR WOMEN</a></p>
-        <p><a class="total-button total-button-black" menu-close="" href="#tab/pageList/{{'kids'}}">FOR KIDS</a></p>
+        <p ng-repeat="item in typeListData">
+          <a class="total-button total-button-black" menu-close="" href="#tab/pageList/{{item.data}}">{{item.name | uppercase}}</a>
+        </p>
       </div>
       <div class="col total-banner-cel-right"></div>
     </div>
 
     <!--中间BANNER-->
-    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{'shirts'}}">
+    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{bottomItemData.link}}">
       <div class="col">
         <div class="col total-banner-center">
-          <p class="total-banner-p">DRESS</p>
-          <p class="total-banner-p total-banner-up-ps">31 ITEMS</p>
+          <p class="total-banner-p">{{bottomItemData.name}}</p>
+          <p class="total-banner-p total-banner-up-ps">{{bottomItemData.quality | itemUnion}}</p>
         </div>
       </div>
     </a>
