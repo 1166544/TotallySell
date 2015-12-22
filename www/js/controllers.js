@@ -1,12 +1,12 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['app.services'])
 
 // 登录页面模块
-.controller('loginCtrl', function($scope, $state)
+.controller('loginCtrl', function($scope, $state, LoginService)
   {
     $scope.loginData = {userName:"", password:""};
 
     $scope.doLogin = function(){
-      if($scope.loginData.userName == "xxd" && $scope.loginData.password == "xxd"){
+      if(LoginService.login($scope.loginData.userName, $scope.loginData.password)){
         $state.go("tab.dash");
       }
     }
