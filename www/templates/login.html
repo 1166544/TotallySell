@@ -9,13 +9,14 @@
             <ion-list>
                 <label class="item item-input">
                     <span class="input-label">USER NAME</span>
-                    <input type="text" placeholder="" ng-model="loginData.userName">
+                    <input type="text" placeholder="" ng-model="loginData.userName" ng-focus="doFocus()">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">PASSWORD</span>
-                    <input type="password" placeholder="" ng-model="loginData.password">
+                    <input type="password" placeholder="" ng-model="loginData.password" ng-focus="doFocus()">
                 </label>
             </ion-list>
+            <p ng-show="loginData.inviated" class="totally-tip-p">User name or password incorrect.</p>
             <div class="spacer totally-spacer-bottom"></div>
             <a menu-close="" class="button button-calm button-block  icon ion-log-in button-full" ng-click="doLogin()"> Log in</a>
             <a menu-close="" href="#/page2" class="button button-dark button-clear button-block ">Or create an account</a>
