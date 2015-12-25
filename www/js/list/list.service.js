@@ -48,6 +48,9 @@
       getDetailListData:function(queryData){
         return {
 
+          // id
+          id:12345676,
+
           // 滚动列表
           sideShowList:[
             {src:"../../img/p-b1.png", title:"", desc:""},

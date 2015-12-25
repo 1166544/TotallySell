@@ -68,13 +68,6 @@ angular.module('app.routes', [])
       controller: 'signupCtrl'
     })
 
-    // 购物车页面
-    .state('cart', {
-      url: '/page5',
-      templateUrl: 'templates/tab-tab-cart.html',
-      controller: 'cartCtrl'
-    })
-
     // DELIVERY页面
     .state('tab.delivery', {
       url: '/pageDelivery',
