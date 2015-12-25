@@ -57,14 +57,14 @@ angular.module('app.routes', [])
     // 登录页面
     .state('login', {
       url: '/page1',
-      templateUrl: 'templates/login.html',
+      templateUrl: 'templates/login/login.html',
       controller: 'loginCtrl'
     })
 
     // 注册页面
     .state('signup', {
       url: '/page2',
-      templateUrl: 'templates/signup.html',
+      templateUrl: 'templates/login/signup.html',
       controller: 'signupCtrl'
     })
 
@@ -80,7 +80,7 @@ angular.module('app.routes', [])
       url: '/pageDelivery',
       views: {
         'tab-dash': {
-          templateUrl: 'templates/delivery.html',
+          templateUrl: 'templates/dash/delivery.html',
           controller: 'deliveryCtrl'
         }
       }
@@ -91,7 +91,7 @@ angular.module('app.routes', [])
       url: '/pageAbout',
       views:{
         'tab-dash':{
-          templateUrl:'templates/about.html',
+          templateUrl:'templates/dash/about.html',
           controller:'aboutCtrl'
         }
       }
@@ -102,7 +102,7 @@ angular.module('app.routes', [])
       url: '/pageContact',
       views:{
         'tab-dash':{
-          templateUrl:'templates/contact.html',
+          templateUrl:'templates/dash/contact.html',
           controller:'contactCtrl'
         }
       }
@@ -113,7 +113,7 @@ angular.module('app.routes', [])
       url: '/pageList/:aId',
       views:{
         'tab-dash':{
-          templateUrl:'templates/list.html',
+          templateUrl:'templates/list/list.html',
           controller:'listCtrl'
         }
       }
@@ -122,7 +122,7 @@ angular.module('app.routes', [])
       url: '/pageDetail/:aId',
       views:{
         'tab-dash':{
-          templateUrl:'templates/list-details.html',
+          templateUrl:'templates/list/list-details.html',
           controller:'listDetailCtrl'
         }
       }
@@ -131,14 +131,14 @@ angular.module('app.routes', [])
     // 用户设置页面
     .state('profile', {
       url: '/page6',
-      templateUrl: 'templates/profile.html',
+      templateUrl: 'templates/profile/profile.html',
       controller: 'profileCtrl'
     })
 
     // 订单页面
     .state('order', {
       url: '/page7',
-      templateUrl: 'templates/order.html',
+      templateUrl: 'templates/cart/order.html',
       controller: 'orderCtrl'
     })
     ;
