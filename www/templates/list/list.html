@@ -8,81 +8,20 @@
         </ion-slide>
       </ion-slide-box>
 
-      <ul class="list total-list-box">
-          <div class="row total-list-box">
-            <div class="col">
-              <a href="#tab/pageDetail/{{'p1'}}">
-                <div class="total-list-item">
-                  <img src="../../img/p1.png">
-                  <h1>Skull with snake</h1>
-                  <div class="total-item-title">
-                    <p class="total-item-title-left">T-shirt</p>
-                    <p class="total-item-title-right">$45</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col">
-              <a href="#tab/pageDetail/{{'p2'}}">
-                <div class="total-list-item">
-                  <img src="../../img/p2.png">
-                  <h1>Skull with light</h1>
-                  <div class="total-item-title">
-                    <p class="total-item-title-left">Popular</p>
-                    <p class="total-item-title-right">$95</p>
-                  </div>
-                </div>
-              </a>
+      <div class="total-list-box">
+
+        <a ng-repeat="item in listProductData" href="{{item.link}}">
+          <div class="total-list-item">
+            <img src="{{item.src}}">
+            <h1>{{item.title}}</h1>
+            <div class="total-item-title">
+              <p class="total-item-title-left">{{item.pName}}</p>
+              <p class="total-item-title-right">{{item.pPrice | currency:'$'}}</p>
             </div>
           </div>
-      </ul>
-      <!--<div class="total-list-box">-->
+        </a>
 
-        <!--<a href="#tab/pageDetail/{{'p1'}}">-->
-          <!--<div class="total-list-item">-->
-            <!--<img src="../../img/p1.png">-->
-            <!--<h1>Skull with snake</h1>-->
-            <!--<div class="total-item-title">-->
-              <!--<p class="total-item-title-left">T-shirt</p>-->
-              <!--<p class="total-item-title-right">$45</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</a>-->
-
-        <!--<a href="#tab/pageDetail/{{'p2'}}">-->
-          <!--<div class="total-list-item">-->
-            <!--<img src="../../img/p2.png">-->
-            <!--<h1>Skull with light</h1>-->
-            <!--<div class="total-item-title">-->
-              <!--<p class="total-item-title-left">Popular</p>-->
-              <!--<p class="total-item-title-right">$95</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</a>-->
-
-        <!--<a href="#tab/pageDetail/{{'p3'}}">-->
-          <!--<div class="total-list-item">-->
-            <!--<img src="../../img/p3.png">-->
-            <!--<h1>Skull with Fork</h1>-->
-            <!--<div class="total-item-title">-->
-              <!--<p class="total-item-title-left">Popular</p>-->
-              <!--<p class="total-item-title-right">$68</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</a>-->
-
-        <!--<a href="#tab/pageDetail/{{'p4'}}">-->
-          <!--<div class="total-list-item">-->
-            <!--<img src="../../img/p4.png">-->
-            <!--<h1>Skull with Fighger</h1>-->
-            <!--<div class="total-item-title">-->
-              <!--<p class="total-item-title-left">Young</p>-->
-              <!--<p class="total-item-title-right">$88</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</a>-->
-
-      <!--</div>-->
+      </div>
 
     </ion-content>
 </ion-view>

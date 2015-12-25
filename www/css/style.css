@@ -196,19 +196,19 @@
 }
 
 .total-list-box{
-  width: 100%;
+  width: 400px;
   height: 100%;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .total-list-item{
-  width: 100%;
+  width: 180px;
   height: 100%;
   border: solid #999 1px;
-  display: block;
+  display:inline-block;
   float: left;
-  margin: 0 0 0 0;
+  margin: 0 10px  10px;
 }
 
 .total-list-item img{
@@ -237,7 +237,7 @@
   width: 100%;
   display: inline;
   color: dodgerblue;
-  padding-right: 20px;
+  padding-left: 10px;
 }
 
 .list-detail-col-right{
