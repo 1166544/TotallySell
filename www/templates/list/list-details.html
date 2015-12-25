@@ -2,25 +2,13 @@
     <ion-content padding="'true'" class="has-header" does-continue="true" auto-play="true">
 
       <ion-slide-box show-pager="true" auto-play="true">
-        <ion-slide>
-          <img class="total-side-box" src="../../img/p-b1.png">
-        </ion-slide>
-        <ion-slide>
-          <img class="total-side-box" src="../../img/p-b2.png">
-        </ion-slide>
-        <ion-slide>
-          <img class="total-side-box" src="../../img/ps-1.png">
-        </ion-slide>
-        <ion-slide>
-          <img class="total-side-box" src="../../img/ps-2.png">
-        </ion-slide>
-        <ion-slide>
-          <img class="total-side-box" src="../../img/ps-3.png">
+        <ion-slide ng-repeat="item in detailListData.sideShowList as vm">
+          <img class="total-side-box" src="{{item.src}}">
         </ion-slide>
       </ion-slide-box>
 
-      <h3>Brooklyn T-shirt</h3>
-      <p>$45</p>
+      <h3>{{detailListData.pName}}</h3>
+      <p>{{detailListData.pPrice | currency:'$'}}</p>
 
       <div class="row list-detail-item">
         <div class="col">
@@ -29,9 +17,7 @@
               Size
             </div>
             <select>
-              <option>Small</option>
-              <option selected>Middle</option>
-              <option>Large</option>
+              <option ng-repeat="item in sizeList" ng-selected="detailListData.size == item.data">{{item.label}}</option>
             </select>
           </label>
         </div>
@@ -41,16 +27,14 @@
               Color
             </div>
             <select>
-              <option>Blue</option>
-              <option selected>Green</option>
-              <option>Red</option>
+              <option ng-repeat="item in colorList" ng-selected="detailListData.color == item.data">{{item.label}}</option>
             </select>
           </label>
         </div>
       </div>
 
       <div class="item item-body item-text-wrap list-detail-text">
-        To these in the morning I sent the captain, who was to enter into a parley with them; in a word, to try them, and tell me whether he thought they might be trusted or not to go on board and surprise the ship.
+        {{detailListData.desc}}
       </div>
 
       <button class="button button-full button-calm">
@@ -58,70 +42,20 @@
       </button>
 
       <div class="button-bar bar-light list-bar-content">
-        <a class="button"><i class="icon ion-ios-people-outline"> Good</i></a>
-        <a class="button"><i class="icon ion-ios-personadd-outline"> Middle</i></a>
-        <a class="button"><i class="icon ion-ios-person-outline"> Bad</i></a>
+        <a class="button" ng-click="refreshNoteData(item.data)" ng-repeat="item in noteCommitList">
+          <i class="icon ion-ios-people-outline"> {{item.label}}</i>
+        </a>
       </div>
 
       <div class="list list-bar-content">
 
-        <a class="item item-avatar" href="#">
-          <img src="../../img/feed_1.jpg">
-          <h2>Venkman</h2>
-          <p>Back off, man. I'm a popular.</p>
-          <div>
-            <i class="icon ion-thumbsup dark">Agree</i>
-            <i class="icon ion-thumbsdown list-agree-right dark">Disagree</i>
-          </div>
-        </a>
-
-        <a class="item item-avatar" href="#">
-          <img src="../../img/feed_2.jpg">
-          <h2>Egon</h2>
-          <p>We're gonna go call cs num.</p>
-          <div>
-            <i class="icon ion-thumbsup dark">Agree</i>
-            <i class="icon ion-thumbsdown list-agree-right dark">Disagree</i>
-          </div>
-        </a>
-
-        <a class="item item-avatar" href="#">
-          <img src="../../img/feed_3.jpg">
-          <h2>Ray</h2>
-          <p>Ugly little on clothes, isn't he?</p>
-          <div>
-            <i class="icon ion-thumbsup dark">Agree</i>
-            <i class="icon ion-thumbsdown list-agree-right dark">Disagree</i>
-          </div>
-        </a>
-
-        <a class="item item-avatar" href="#">
-          <img src="../../img/feed_4.jpg">
-          <h2>Winston</h2>
-          <p>That's a big Twinkie.</p>
-          <div>
-            <i class="icon ion-thumbsup dark">Agree</i>
-            <i class="icon ion-thumbsdown list-agree-right dark">Disagree</i>
-          </div>
-        </a>
-
-        <a class="item item-avatar" href="#">
-          <img src="../../img/feed_5.jpg">
-          <h2>Tully</h2>
-          <p>Okay, is quality best?</p>
-          <div>
-            <i class="icon ion-thumbsup dark">Agree</i>
-            <i class="icon ion-thumbsdown list-agree-right dark">Disagree</i>
-          </div>
-        </a>
-
-        <a class="item item-avatar" href="#">
-          <img src="../../img/feed_6.jpg">
-          <h2>Dana</h2>
-          <p>Good not so bad!</p>
-          <div>
-            <i class="icon ion-thumbsup dark">Agree</i>
-            <i class="icon ion-thumbsdown list-agree-right dark">Disagree</i>
+        <a ng-repeat="item in customerNoteData" class="item item-avatar" href="#">
+          <img src="{{item.src}}">
+          <h2>{{item.name}}</h2>
+          <p>{{item.note}}</p>
+          <div ng-switch on="item.agree">
+            <i class="icon ion-thumbsup list-agree-right" ng-switch-when="true"> Agree</i>
+            <i class="icon ion-thumbsdown dark" ng-switch-when="false"> Disagree</i>
           </div>
         </a>
 
