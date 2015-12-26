@@ -3,28 +3,17 @@
     .module('app.controllers')
     .controller('CartCtrl', CartCtrl);
 
-  CartCtrl.$inject = ["$scope", "ADD_TO_CART"];
+  CartCtrl.$inject = ["$scope", 'CommonFactory'];
   /**
    * 购物车控制器
    * @param $scope
    * @constructor
    */
-  function CartCtrl($scope, ADD_TO_CART)
+  function CartCtrl($scope, CommonFactory)
   {
     // 定义购物车列表数据
-    $scope.cartDataList = [];
+    $scope.cartDataList = CommonFactory.cartDataList;
 
-    // 注册添加购物车事件
-    $scope.$on(ADD_TO_CART, addToCart);
 
-    /**
-     * 更新购物车数据
-     * @param itemData
-     */
-    function addToCart(e, item)
-    {
-      $scope.cartDataList.push(item);
-      console.log($scope.cartDataList.length);
-    }
   }
 })();

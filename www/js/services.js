@@ -11,6 +11,11 @@
   function CommonFactory(GOOD, MIDDLE, BAD) {
       return {
         /**
+         * 购物车数据
+         */
+        cartDataList: [],
+
+        /**
          * 颜色列表
          * @returns {{label: string, data: number}[]}
          */
