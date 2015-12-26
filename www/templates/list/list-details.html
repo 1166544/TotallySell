@@ -16,8 +16,8 @@
             <div class="input-label">
               Size
             </div>
-            <select>
-              <option ng-repeat="item in sizeList" ng-selected="detailListData.size == item.data">{{item.label}}</option>
+            <select ng-model="detailListData.size">
+              <option ng-repeat="item in sizeList">{{item.label}}</option>
             </select>
           </label>
         </div>
@@ -26,8 +26,8 @@
             <div class="input-label">
               Color
             </div>
-            <select>
-              <option ng-repeat="item in colorList" ng-selected="detailListData.color == item.data">{{item.label}}</option>
+            <select ng-model="detailListData.color">
+              <option ng-repeat="item in colorList">{{item.label}}</option>
             </select>
           </label>
         </div>

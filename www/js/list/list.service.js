@@ -64,8 +64,8 @@
           pName:"T-shirt",
           pPrice:"98",
           desc:"To these in the morning I sent the captain, who was to enter into a parley with them; in a word, to try them, and tell me whether he thought they might be trusted or not to go on board and surprise the ship.",
-          size:2,
-          color:0
+          size:"Small",
+          color:"Green"
 
         };
       },

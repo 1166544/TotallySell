@@ -28,9 +28,9 @@
          */
         getSizeList:function(){
           return [
-            {label:"Small", data:0},
-            {label:"Middle", data:1},
-            {label:"Large", data:2}
+            {label:"Small", data:"S"},
+            {label:"Middle", data:"M"},
+            {label:"Large", data:"L"}
           ];
         },
 

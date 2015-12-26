@@ -3,14 +3,14 @@
     .module('app.controllers')
     .controller('listDetailCtrl', ListDetailCtrl);
 
-  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CommonFactory', 'GOOD'];
+  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CommonFactory', 'GOOD', 'ADD_TO_CART'];
   /**
    * 列表详细页面控制器
    * @param $scope
    * @param $state
    * @constructor
    */
-  function ListDetailCtrl($scope, $state, ListService, CommonFactory, GOOD)
+  function ListDetailCtrl($scope, $state, ListService, CommonFactory, GOOD, ADD_TO_CART)
   {
     // console.log($state.params.aId);
     var pageParm = $state.params.aId;
@@ -34,13 +34,15 @@
     $scope.addToCart = function()
     {
       // 更新结算数据
-      CartCtrl.updateCart(
-        $scope.detailListData.sideShowList[0].src,
-        $scope.detailListData.pName,
-        $scope.detailListData.pPrice,
-        $scope.detailListData.size,
-        $scope.detailListData.color
-      );
+      var item = {
+          src:$scope.detailListData.sideShowList[0].src,
+          pName:$scope.detailListData.pName,
+          pPrice:$scope.detailListData.pPrice,
+          size:$scope.detailListData.size,
+          color:$scope.detailListData.color,
+          quality:1
+      };
+      $scope.$emit(ADD_TO_CART, item);
 
       // 跳至结算页面
       $state.go("tab.cart");
