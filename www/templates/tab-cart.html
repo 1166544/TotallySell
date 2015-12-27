@@ -8,12 +8,6 @@
     <ion-content>
       <ion-list>
 
-        <!--src:$scope.detailListData.sideShowList[0].src,-->
-        <!--pName:$scope.detailListData.pName,-->
-        <!--pPrice:$scope.detailListData.pPrice,-->
-        <!--size:$scope.detailListData.size,-->
-        <!--color:$scope.detailListData.color-->
-
         <ion-item ng-repeat="item in cartDataList" class="item item-thumbnail-left item-text-wrap" href="#">
           <img src="{{item.src}}">
           <div class="row">
@@ -22,7 +16,7 @@
               <p class="total-cart-quality">{{item.quality}}</p>
             </div>
             <div class="col">
-              <h3 class="total-cart-size total-cart-size-s">S</h3>
+              <h3 class="total-cart-size total-cart-size-s">{{getSizeDesc(item.size)}}</h3>
               <p class="total-cart-price">{{item.pPrice | currency:'$'}}</p>
             </div>
           </div>
@@ -35,7 +29,7 @@
           <p>TOTAL</p>
         </div>
         <div class="col">
-          <p>$380</p>
+          <p>{{totalCost | currency:'$'}}</p>
         </div>
       </div>
 
