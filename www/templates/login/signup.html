@@ -1,38 +1,77 @@
 <ion-view title="Signup">
     <ion-content padding="'true'" scroll="false" class="has-header">
-        <div class="spacer" style="width: 300px; height: 68px;"></div>
-        <form class="list">
+        <div class="spacer totally-spacer-signup"></div>
+        <form class="list" name="signup">
             <ion-list>
                 <label class="item item-input">
                     <span class="input-label">Firsh Name</span>
-                    <input type="text" placeholder="Ente first name">
+                    <input type="text" name="username" placeholder="Ente first name" ng-model="signUpData.firstName" ng-pattern="/^[a-zA-Z]{1}/" ng-required="true" ng-minlength="5" ng-maxlength="10">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Last Name</span>
-                    <input type="text" placeholder="Enter last name">
+                    <input type="text" name="lastName" placeholder="Enter last name" ng-model="signUpData.lastName" ng-pattern="/^[a-zA-Z]{1}/" ng-required="true" ng-minlength="5" ng-maxlength="10">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
-                    <input type="password" placeholder="Enter password">
+                    <input type="password" name="password" placeholder="Enter password" ng-model="signUpData.password" ng-required="true" ng-minlength="5" ng-maxlength="10">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password again</span>
-                    <input type="password" placeholder="Confirm password ">
+                    <input type="password" name="passwordConfirm" placeholder="Confirm password " ng-model="signUpData.passwordConfirm" ng-required="true">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Email</span>
-                    <input type="email" placeholder="Enter e-mail">
+                    <input type="email" name="email" placeholder="Enter e-mail" ng-model="signUpData.email" ng-required="true" ng-minlength="5" ng-maxlength="30">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Phone</span>
-                    <input type="tel" placeholder="Enter phone">
+                    <input type="tel" name="phone" placeholder="Enter phone" ng-model="signUpData.phone" ng-minlength="5" ng-maxlength="18">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Address</span>
-                    <input type="text" placeholder="Enter address">
+                    <input type="text" name="address" placeholder="Enter address" ng-model="signUpData.address" ng-minlength="5" ng-maxlength="30" >
                 </label>
             </ion-list>
-            <a menu-close="" href="#/tab/dash" class="button button-calm button-block  icon ion-person-add button-full"> Sign up</a>
+
+            <div ng-show="signup.lastName.$dirty && signup.lastName.$error.maxlength" class="assertive">
+              Lastname can't more than 10
+            </div>
+            <div ng-show="signup.lastName.$dirty && signup.lastName.$error.minlength" class="assertive">
+              Lastname can't less than 5
+            </div>
+            <div ng-show="signup.lastName.$dirty && signup.lastName.$error.pattern" class="assertive">
+              Lastname must start with en words
+            </div><div ng-show="signup.password.$dirty && signup.password.$error.maxlength" class="assertive">
+            Password can't not more than 10
+            </div>
+              <div ng-show="signup.password.$dirty && signup.password.$error.minlength" class="assertive">
+                Password can't less than 5
+              </div><div ng-show="signup.password.$dirty && signup.passwordConfirm.$dirty && signUpData.password !== signUpData.passwordConfirm" class="assertive">
+              Password not the same before
+            </div><div ng-show="signup.email.$dirty && signup.email.$error.maxlength" class="assertive">
+              Mail length can't more than 30
+            </div>
+            <div ng-show="signup.email.$dirty && signup.email.$error.minlength" class="assertive">
+              Mail length can't less than 5
+            </div>
+            <div ng-show="signup.email.$dirty && signup.email.$error.email" class="assertive">
+              Not correct email format
+            </div>
+            <div ng-show="signup.phone.$dirty && signup.phone.$error.maxlength" class="assertive">
+              Phone length can't more than 18
+            </div>
+            <div ng-show="signup.email.$dirty && signup.phone.$error.minlength" class="assertive">
+              Phone length can't less than 5
+            </div>
+            <div ng-show="signup.address.$dirty && signup.address.$error.maxlength" class="assertive">
+              Address length can't more than 30
+            </div>
+            <div ng-show="signup.address.$dirty && signup.address.$error.minlength" class="assertive">
+              Address length can't less than 5
+            </div>
+
+            <a menu-close="" ng-disabled="signup.$invalid" class="button button-calm button-block  icon ion-person-add button-full" ng-click="signUp()"> Sign up</a>
+            <a menu-close="" class="button button-stable button-block  icon ion-ios-reload button-full" ng-click="reset()"> Reset</a>
         </form>
     </ion-content>
 </ion-view>
