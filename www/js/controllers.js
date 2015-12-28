@@ -8,5 +8,8 @@ angular.module('app.controllers', ['app.services', 'app.filters'])
 // 好/中/差评
 .constant("GOOD",   "good")
 .constant("MIDDLE", "middle")
-.constant("BAD",    "bad");
+.constant("BAD",    "bad")
+
+// 购物车更新
+.constant("UPDATE_CART", "update_cart");
 

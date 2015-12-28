@@ -3,14 +3,14 @@
     .module('app.controllers')
     .controller('listDetailCtrl', ListDetailCtrl);
 
-  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CommonFactory', 'GOOD'];
+  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CommonFactory', 'GOOD', 'UPDATE_CART'];
   /**
    * 列表详细页面控制器
    * @param $scope
    * @param $state
    * @constructor
    */
-  function ListDetailCtrl($scope, $state, ListService, CommonFactory, GOOD)
+  function ListDetailCtrl($scope, $state, ListService, CommonFactory, GOOD, UPDATE_CART)
   {
     // console.log($state.params.aId);
     var pageParm = $state.params.aId;
@@ -44,8 +44,8 @@
       };
       CommonFactory.cartDataList.push(item);
 
-      // 跳至结算页面
-      $state.go("tab.cart");
+      // 跳至结算页面,并传入计算总价位参数
+      $state.go("tab.cart", {aId:UPDATE_CART});
     }
   }
 })();

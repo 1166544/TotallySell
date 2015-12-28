@@ -35,7 +35,8 @@ angular.module('app.routes', [])
     })
 
     .state('tab.cart', {
-      url: '/cart',
+      url: '/cart/:aId',
+      cache: false,
       views: {
         'tab-cart': {
           templateUrl: 'templates/tab-cart.html',
