@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
   angular
     .module('app.controllers')
     .controller('loginCtrl', LoginCtrl);
@@ -11,11 +12,17 @@
    * @param LoginService
    * @constructor
    */
-  function LoginCtrl($scope, $state, LoginService) {
+  function LoginCtrl($scope, $state, LoginService)
+  {
     $scope.loginData = {userName: "", password: "", inviated: false};
+    $scope.doLogin = doLogin;
+    $scope.clearInput = clearInput;
+    $scope.doFocus = doFocus;
+    $scope.showTips = showTips;
+    $scope.hideTips = hideTips;
 
     // 登录处理,成功则跳转至主页面
-    $scope.doLogin = function () {
+    function doLogin() {
       if (LoginService.login($scope.loginData.userName, $scope.loginData.password)) {
         $scope.hideTips();
         $state.go("tab.dash");
@@ -27,20 +34,20 @@
     }
 
     // 移除输入内容
-    $scope.clearInput = function () {
+    function clearInput() {
       $scope.loginData.userName = $scope.loginData.password = "";
     }
 
     // 获得焦点处理
-    $scope.doFocus = function () {
-      $scope.hideTips();
+    function doFocus() {
+      hideTips();
     }
 
-    $scope.showTips = function () {
+    function showTips() {
       $scope.loginData.inviated = true;
     }
 
-    $scope.hideTips = function () {
+    function hideTips() {
       $scope.loginData.inviated = false;
     }
   }

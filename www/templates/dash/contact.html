@@ -6,28 +6,12 @@
 
       <div class="item contact-item item-text-wrap item-icon-right">
 
-        <div class="iem-septar">
+        <div class="iem-septar" ng-repeat="item in contactData">
           <div class="item-conten-dir">
-            <h1 class="item-title-left">Bus</h1>
-            <h1 class="item-title-right">18:16</h1>
+            <h1 class="item-title-left">{{item.trafficName}}</h1>
+            <h1 class="item-title-right">{{item.trafficeTime}}</h1>
           </div>
-          <p class="item-title-content-p">It was some time before he obtained any answer, and the reply, when made, was unpropitious.</p>
-        </div>
-
-        <div class="iem-septar">
-          <div class="item-conten-dir">
-            <h1 class="item-title-left">Train</h1>
-            <h1 class="item-title-right">20:20</h1>
-          </div>
-          <p class="item-title-content-p">It was some time before he obtained any answer.</p>
-        </div>
-
-        <div class="iem-septar">
-          <div class="item-conten-dir">
-            <h1 class="item-title-left">Airplane</h1>
-            <h1 class="item-title-right">22:35</h1>
-          </div>
-          <p class="item-title-content-p">It was some time before he obtained any answer.</p>
+          <p class="item-title-content-p">{{item.trafficDesc}}</p>
         </div>
 
       </div>

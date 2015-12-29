@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
   angular
     .module('app.controllers')
     .controller('listDetailCtrl', ListDetailCtrl);
@@ -20,18 +21,21 @@
     $scope.sizeList = CommonFactory.getSizeList();
     $scope.noteCommitList = CommonFactory.getNoteCommitList();
 
+    $scope.refreshNoteData = refreshNoteData;
+    $scope.addToCart = addToCart;
+
     /**
      * 更新评论数据
      * @param type
      */
-    $scope.refreshNoteData = function(type){
+    function refreshNoteData(type){
       $scope.customerNoteData = ListService.getCustomerNoteData(pageParm, type);
     }
 
     /**
      * 加入购物车
      */
-    $scope.addToCart = function()
+    function addToCart()
     {
       // 更新结算数据
       var item = {

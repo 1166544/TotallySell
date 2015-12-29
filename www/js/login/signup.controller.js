@@ -1,4 +1,5 @@
 (function(){
+  'use strict';
   angular
     .module('app.controllers')
     .controller('signupCtrl', SignupCtrl);
@@ -24,26 +25,29 @@
       address:""
     };
 
+    $scope.reset = reset;
+    $scope.signUp = signUp;
+
     /**
      * 重置操作
      */
-      $scope.reset = function(){
-        $scope.signUpData = {
-          firstName:"",
-          lastName:"",
-          password:"",
-          email:"",
-          phone:"",
-          address:""
-        };
-      }
+    function reset(){
+      $scope.signUpData = {
+        firstName:"",
+        lastName:"",
+        password:"",
+        email:"",
+        phone:"",
+        address:""
+      };
+    }
 
     /**
      * 提交表单操作
      */
-      $scope.signUp = function(){
-        $state.go("tab.dash");
-        $scope.reset();
-      }
+    function signUp(){
+      $state.go("tab.dash");
+      $scope.reset();
+    }
   }
 })();

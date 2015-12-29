@@ -1,4 +1,5 @@
 (function(){
+  'use strict';
   angular
     .module('app.controllers')
     .controller('CartCtrl', CartCtrl);
@@ -16,6 +17,9 @@
 
     // 总花费
     $scope.totalCost = 0;
+
+    // 转换尺寸简写
+    $scope.getSizeDesc = getSizeDesc;
 
     // 对导航数据分块处理
     switch ($state.params.aId)
@@ -40,7 +44,7 @@
      * @param str
      * @returns {*|Array.<T>|string|Blob}
      */
-    $scope.getSizeDesc = function(str){
+    function getSizeDesc(str){
       return str.slice(0,1);
     }
   }

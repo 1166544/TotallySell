@@ -97,7 +97,7 @@ angular.module('app.routes', [])
       views:{
         'tab-dash':{
           templateUrl:'templates/dash/about.html',
-          controller:'aboutCtrl'
+          controller:'AboutCtrl'
         }
       }
     })
@@ -108,7 +108,7 @@ angular.module('app.routes', [])
       views:{
         'tab-dash':{
           templateUrl:'templates/dash/contact.html',
-          controller:'contactCtrl'
+          controller:'ContactCtrl'
         }
       }
     })
