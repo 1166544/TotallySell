@@ -1,44 +1,14 @@
 <ion-view view-title="Social">
   <ion-content>
 
-    <img src="img/top1.jpg">
-    <p class="total-banner-cells-p total-banner-title-p">My name is Peggy Olson and Iwanna smoke some marijuana.</p>
+    <img src="{{mainData.src}}">
+    <p class="total-banner-cells-p total-banner-title-p">{{mainData.desc}}</p>
     <ion-list>
 
-      <ion-item class="item item-thumbnail-right item-text-wrap" href="#">
-        <img src="img/feed_1.jpg">
-        <h2>He may act like he wants a secretary but most of the time they're looking for...</h2>
-        <p>19min</p>
-      </ion-item>
-
-      <ion-item class="item item-thumbnail-right item-text-wrap" href="#">
-        <img src="img/feed_2.jpg">
-        <h2>Peggy,just think about it.Deeply.Then forget it. And an idea will jump up in your face.</h2>
-        <p>16min</p>
-      </ion-item>
-
-      <ion-item class="item item-thumbnail-right item-text-wrap" href="#">
-        <img src="img/feed_3.jpg">
-        <h2>Go home,take a paper bag and cut some eyeholes out of it.Put it over your head...</h2>
-        <p>TvADS Nails</p>
-      </ion-item>
-
-      <ion-item class="item item-thumbnail-right item-text-wrap" href="#">
-        <img src="img/feed_4.jpg">
-        <h2>Get out of here and move forward.This never happened.It will shock you how mouch....</h2>
-        <p>radio ads</p>
-      </ion-item>
-
-      <ion-item class="item item-thumbnail-right item-text-wrap" href="#">
-        <img src="img/feed_5.jpg">
-        <h2>That poor girl.She doesn't know that loving you is the worst way to get to you.</h2>
-        <p>Shopping list</p>
-      </ion-item>
-
-      <ion-item class="item item-thumbnail-right item-text-wrap" href="#">
-        <img src="img/feed_6.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
+      <ion-item ng-repeat="item in socialList" class="item item-thumbnail-right item-text-wrap" href="{{item.link}}">
+        <img src="{{item.src}}">
+        <h2>{{item.title}}</h2>
+        <p>{{item.time}}</p>
       </ion-item>
 
     </ion-list>

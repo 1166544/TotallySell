@@ -2,7 +2,7 @@
 
   <!--左边设置菜单 -->
   <ion-nav-buttons side="secondary">
-    <a class="button button-icon ion-ios-compose-outline" href="#/tab/edit">EDIT</a>
+    <!--<a class="button button-icon ion-ios-compose-outline" href="#/tab/edit">EDIT</a>-->
   </ion-nav-buttons>
 
     <ion-content>
@@ -33,8 +33,10 @@
         </div>
       </div>
 
-      <div class="row" ng-show="cartDataList.length == 0">
-        <div class="col"><h1>Your cart is empty.</h1></div>
+      <div class="card calm-bg"  ng-show="cartDataList.length == 0">
+        <div class="item item-text-wrap">
+          <h1>Your cart is empty.</h1>
+        </div>
       </div>
 
     </ion-content>

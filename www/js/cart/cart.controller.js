@@ -31,7 +31,7 @@
         $scope.totalCost = total;
             break;
       default :
-          $scope.totalCost = 0;
+        // 空处理，什么也不做
             break;
     }
 

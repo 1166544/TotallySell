@@ -34,6 +34,17 @@ angular.module('app.routes', [])
       }
     })
 
+    .state('tab.socialDetail', {
+      url: '/social/:aId',
+      cache: false,
+      views: {
+        'tab-social': {
+          templateUrl: 'templates/profile/social-sub.html',
+          controller: 'SocialSubPageCtrl'
+        }
+      }
+    })
+
     .state('tab.cart', {
       url: '/cart/:aId',
       cache: false,
