@@ -12,7 +12,7 @@
         <i class="icon ion-location calm"></i>
         Geolocalisation service
         <label class="toggle toggle-calm">
-          <input type="checkbox">
+          <input type="checkbox" ng-model="profileData.geoEnable">
           <div class="track">
             <div class="handle"></div>
           </div>
@@ -23,7 +23,7 @@
         <i class="icon ion-chatbubble-working calm"></i>
         Message service
         <label class="toggle toggle-calm">
-          <input type="checkbox">
+          <input type="checkbox" ng-model="profileData.messageEnable">
           <div class="track">
             <div class="handle"></div>
           </div>
@@ -34,7 +34,7 @@
         <i class="icon ion-social-whatsapp-outline calm"></i>
         Call Enable
         <label class="toggle toggle-calm">
-          <input type="checkbox">
+          <input type="checkbox" ng-model="profileData.callEnable">
           <div class="track">
             <div class="handle"></div>
           </div>
@@ -58,27 +58,27 @@
 
       <label class="item item-input item-stacked-label">
         <span class="input-label">First name</span>
-        <input type="text" placeholder="John">
+        <input type="text" placeholder="John" ng-model="profileData.firstName">
       </label>
 
       <label class="item item-input item-stacked-label">
         <span class="input-label">Last name</span>
-        <input type="text" placeholder="Smith.w">
+        <input type="text" placeholder="Smith.w" ng-model="profileData.lastName">
       </label>
 
       <label class="item item-input item-stacked-label">
         <span class="input-label">Email</span>
-        <input type="text" placeholder="john@suhr.com">
+        <input type="text" placeholder="john@suhr.com" ng-model="profileData.email">
       </label>
 
       <label class="item item-input item-stacked-label">
         <span class="input-label">Phone</span>
-        <input type="tel" placeholder="0123456789">
+        <input type="tel" placeholder="0123456789" ng-model="profileData.phone">
       </label>
 
       <label class="item item-input item-stacked-label">
         <span class="input-label">Address</span>
-        <input type="text" placeholder="Your address here">
+        <input type="text" placeholder="Your address here" ng-model="profileData.address">
       </label>
 
     </ion-list>
@@ -91,8 +91,10 @@
       <div class="col"></div>
     </div>
 
+    <p ng-show="showTip">Your file updateed</p>
+
     <!--更新按钮-->
-    <button class="button button-block button-calm">
+    <button class="button button-block button-calm" ng-click="updateProfile()">
       Update
     </button>
 

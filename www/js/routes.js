@@ -133,13 +133,6 @@ angular.module('app.routes', [])
       }
     })
 
-    // 用户设置页面
-    .state('profile', {
-      url: '/page6',
-      templateUrl: 'templates/profile/profile.html',
-      controller: 'profileCtrl'
-    })
-
     // 订单页面
     .state('order', {
       url: '/page7',
