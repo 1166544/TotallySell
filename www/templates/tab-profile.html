@@ -1,7 +1,13 @@
 <ion-view view-title="Profile">
+
+  <ion-nav-buttons side="secondary">
+    <a class="button button-icon ion-ios-checkmark-outline" ng-click="updateProfile()"></a>
+  </ion-nav-buttons>
+
   <ion-content>
 
-    <div class="total-profile-header"></div>
+    <div class="total-profile-header">
+    </div>
 
     <ion-list>
       <div class="item item-divider">
@@ -93,9 +99,9 @@
 
     <p ng-show="showTip">Your file updateed</p>
 
-    <!--更新按钮-->
-    <button class="button button-block button-calm" ng-click="updateProfile()">
-      Update
+    <!--退出处理 -->
+    <button class="button button-block button-calm" ng-click="logOut()">
+      Log Out
     </button>
 
   </ion-content>

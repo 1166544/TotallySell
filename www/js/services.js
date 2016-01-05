@@ -9,6 +9,10 @@
    * @constructor
    */
   function CommonFactory(GOOD, MIDDLE, BAD) {
+
+      // 当前玩家信息
+      var user;
+
       return {
         /**
          * 购物车数据
@@ -49,6 +53,29 @@
             {label:MIDDLE.toLocaleUpperCase(), data:MIDDLE},
             {label:BAD.toLocaleUpperCase(), data:BAD}
           ];
+        },
+
+        /**
+         * 拿玩家登录信息
+         * @returns {*}
+         */
+        getUserLoginInfo:function(){
+          return user;
+        },
+
+        /**
+         * 存取当前玩家登录状态
+         * @param userInfo
+         */
+        saveUserLoginInfo:function(userInfo){
+          user = userInfo;
+        },
+
+        /**
+         * 清除存前玩家登录状态
+         */
+        clearUserInfo:function(){
+          user = null;
         }
       };
   }
