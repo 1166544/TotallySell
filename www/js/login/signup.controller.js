@@ -4,13 +4,13 @@
     .module('app.controllers')
     .controller('signupCtrl', SignupCtrl);
 
-  SignupCtrl.$inject = ["$scope", "$state"];
+  SignupCtrl.$inject = ["$scope", "$state", "SignUpService"];
   /**
    * 注册新用户逻辑
    * @param $scope
    * @constructor
    */
-  function SignupCtrl($scope, $state) {
+  function SignupCtrl($scope, $state, SignUpService) {
 
     /**
      * 表单提交数据
@@ -31,7 +31,7 @@
     /**
      * 重置操作
      */
-    function reset(){
+    function reset() {
       $scope.signUpData = {
         firstName:"",
         lastName:"",
@@ -45,9 +45,11 @@
     /**
      * 提交表单操作
      */
-    function signUp(){
-      $state.go("tab.dash");
-      $scope.reset();
+    function signUp() {
+      if(SignUpService.signUp($scope.signUpData)){
+          $state.go("tab.dash");
+          $scope.reset();
+      }
     }
   }
 })();

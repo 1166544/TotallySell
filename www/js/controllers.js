@@ -18,6 +18,7 @@ angular.module('app.controllers', ['app.services', 'app.filters'])
 
 // 服务器配置
 .constant("BASE_CONFIG", {
-    routeUrl:"http://127.0.0.1:1337/"
+    routeUrl : "http://127.0.0.1:1337/",                                            // 服务器地址
+    headers : { headers: {'Content-Type' : "application/x-www-form-urlencoded"} }   // 请求消息头
   });
 

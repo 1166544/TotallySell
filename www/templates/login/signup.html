@@ -1,7 +1,7 @@
 <ion-view title="Signup">
     <ion-content padding="'true'" scroll="false" class="has-header">
         <div class="spacer totally-spacer-signup"></div>
-        <form class="list" name="signup">
+        <form class="list" name="signup" ng-submit="signUp()">
             <ion-list>
                 <label class="item item-input">
                     <span class="input-label">Firsh Name</span>
@@ -70,7 +70,7 @@
               Address length can't less than 5
             </div>
 
-            <a menu-close="" ng-disabled="signup.$invalid" class="button button-calm button-block  icon ion-person-add button-full" ng-click="signUp()"> Sign up</a>
+            <input type="submit" value="Sign up" ng-disabled="signup.$invalid" class="button button-calm button-block  icon ion-person-add button-full"></a>
             <a menu-close="" class="button button-stable button-block  icon ion-ios-reload button-full" ng-click="reset()"> Reset</a>
         </form>
     </ion-content>

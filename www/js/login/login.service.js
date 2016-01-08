@@ -22,7 +22,7 @@
       // 模拟数据
       if(SUMIATE_DATA_MODE)
       {
-        if (userName == "xxd" && password == "xxd") {
+        if (userName === "xxd" && password === "xxd") {
           loginResult = true;
         }
         else {
@@ -42,8 +42,7 @@
         return $http.post(
           BASE_CONFIG.routeUrl + "p/users/loginUser",
           parms,
-          {headers: {'Content-Type': "application/x-www-form-urlencoded"}
-        })
+          BASE_CONFIG.headers)
           .success(getLoginComplete)
           .error(getLoginFail);
 
