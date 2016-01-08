@@ -69,6 +69,9 @@
             <div ng-show="signup.address.$dirty && signup.address.$error.minlength" class="assertive">
               Address length can't less than 5
             </div>
+            <div ng-show="signup.userExists" class="assertive">
+              User exists!
+            </div>
 
             <input type="submit" value="Sign up" ng-disabled="signup.$invalid" class="button button-calm button-block  icon ion-person-add button-full"></a>
             <a menu-close="" class="button button-stable button-block  icon ion-ios-reload button-full" ng-click="reset()"> Reset</a>

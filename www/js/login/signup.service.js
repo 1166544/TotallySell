@@ -4,7 +4,7 @@
       .module('app.services')
       .service("SignUpService", SignUpService);
 
-  SignUpService.$inject = ["$http", "CommonFactory", "SUMIATE_DATA_MODE", "BASE_CONFIG"];
+  SignUpService.$inject = ["$http", "CommonFactory", "SUMIATE_DATA_MODE", "BASE_CONFIG", "CODE_CONFIG"];
 
   /**
    * 注册用户服务
@@ -14,7 +14,7 @@
    * @returns {{signUp: signUp}}
    * @constructor
    */
-  function SignUpService($http, CommonFactory, SUMIATE_DATA_MODE, BASE_CONFIG){
+  function SignUpService($http, CommonFactory, SUMIATE_DATA_MODE, BASE_CONFIG, CODE_CONFIG){
 
     return {
       signUp : signUp
@@ -32,7 +32,7 @@
       // 模拟数据
       if(SUMIATE_DATA_MODE)
       {
-        createResult = true;
+        createResult = CODE_CONFIG.LOGIN_SUCCESS;
         return createResult;
       }
       // 真实数据
@@ -53,9 +53,8 @@
        * @param headers
        * @param config
        */
-      function signUpComplete(data, status, headers, config){
-        createResult = true;
-        CommonFactory.saveUserLoginInfo(data);
+      function signUpComplete(data, status, headers, config) {
+        createResult = data;
         return createResult;
       }
 
@@ -67,7 +66,7 @@
        * @param config
        */
       function signUpFail(data, status, headers, config){
-        createResult = false;
+        createResult = CODE_CONFIG.LOGIN_FAIL;
         return createResult;
       }
 
