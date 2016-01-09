@@ -34,25 +34,45 @@
       // 模拟数据
       if(SUMIATE_DATA_MODE)
       {
+
         createResult = CODE_CONFIG.LOGIN_SUCCESS;
-        return createResult;
+        deferred.resolve(createResult);
+        return promise;
+
       }
       // 真实数据
       else{
+
         signUpData.password = md5(signUpData.password);
-        $http.post(
-          BASE_CONFIG.routeUrl + "p/users/addUser",
-          signUpData,
-          BASE_CONFIG.headers)
-          .success(function (data, status, headers, config) {
-            createResult = data;
-            deferred.resolve(createResult);
-          })
-          .error(function (data, status, headers, config){
-            createResult = CODE_CONFIG.LOGIN_FAIL;
-            deferred.reject(createResult);
-          });
+        $http.post(BASE_CONFIG.getServerUrl("p/users/addUser"), signUpData, BASE_CONFIG.headers)
+          .success(handleSuccess)
+          .error(handleError);
         return promise;
+
+      }
+
+      /**
+       * 处理成功
+       * @param data
+       * @param status
+       * @param headers
+       * @param config
+       */
+      function handleSuccess(data, status, headers, config) {
+        createResult = data;
+        deferred.resolve(createResult);
+      }
+
+      /**
+       * 处理失败
+       * @param data
+       * @param status
+       * @param headers
+       * @param config
+       */
+      function handleError(data, status, headers, config){
+        createResult = CODE_CONFIG.LOGIN_FAIL;
+        deferred.reject(createResult);
       }
 
     }
