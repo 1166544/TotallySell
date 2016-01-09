@@ -48,21 +48,29 @@
      */
     function signUp() {
 
-      var data = SignUpService.signUp($scope.signUpData);
-      if(data){
-        switch (data.code)
-        {
+      $scope.signUpData.userExists = false;
+      SignUpService.signUp($scope.signUpData)
+        .then(
+      function(result){
+
+        var success = CODE_CONFIG.LOGIN_SUCCESS;
+        var fail = CODE_CONFIG.USER_EXISTS;
+
+        switch(result.code){
           case CODE_CONFIG.USER_EXISTS.code:
-            // 提示用户已存在
-            $scope.signUpData.userExists = true;
-            break;
+                // 提示用户已存在
+                $scope.signUpData.userExists = true;
+                break;
           case CODE_CONFIG.LOGIN_SUCCESS.code:
-            // 成功创建用户,跳转至主页面
-            $state.go("tab.dash");
-            $scope.reset();
-            break;
+                // 成功创建用户,跳转至主页面
+                $state.go("tab.dash");
+                $scope.reset();
+                break;
         }
-      }
+      },
+      function(error){
+        // hole
+      });
 
     }
   }
