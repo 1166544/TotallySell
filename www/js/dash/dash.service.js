@@ -102,7 +102,7 @@
       else{
 
         // 真实数据
-        $http.get(CommonFactory.getServerUrl("p/dash/getSideItemData"), {direction:direction})
+        $http.get(CommonFactory.getServerUrl("p/dash/getSideItemData"), {params:{direction:direction}})
           .success(handleSuccess)
           .error(handleError);
         return promise;
