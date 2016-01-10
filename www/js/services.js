@@ -3,12 +3,12 @@
 
     .factory('CommonFactory', CommonFactory);
 
-  CommonFactory.$inject = ["GOOD","MIDDLE","BAD"];
+  CommonFactory.$inject = ["GOOD","MIDDLE","BAD", "BASE_CONFIG"];
   /**
    * 公用服务内容
    * @constructor
    */
-  function CommonFactory(GOOD, MIDDLE, BAD) {
+  function CommonFactory(GOOD, MIDDLE, BAD, BASE_CONFIG) {
 
       // 当前玩家信息
       var user;
@@ -18,6 +18,15 @@
          * 购物车数据
          */
         cartDataList: [],
+
+        /**
+         * 拼接服务器连接串
+         * @param url
+         * @returns {*}
+         */
+        getServerUrl:function(url){
+            return BASE_CONFIG.serverUrl + url;
+        },
 
         /**
          * 颜色列表

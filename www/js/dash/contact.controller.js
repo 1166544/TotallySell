@@ -5,6 +5,7 @@
       .controller("ContactCtrl", ContactCtrl);
 
     ContactCtrl.$inject = ['$scope', 'ContactService'];
+
     /**
      * CONTACT页面CONTROLLER
      * @param $scope
@@ -12,6 +13,24 @@
      * @constructor
      */
     function ContactCtrl($scope, ContactService){
-        $scope.contactData = ContactService.getContactData();
+
+        ContactService.getContactData().then(onContactSuccess, onContactFail);
+        /**
+         * 返回CONTACT成功处理
+         * @param result
+         */
+        function onContactSuccess(result){
+          $scope.contactData = result;
+        }
+
+        /**
+         * 返回CONTACT失败处理
+         * @param result
+         */
+        function onContactFail(result){
+          $scope.contactData = result;
+        }
+
     }
+
 })();

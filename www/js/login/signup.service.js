@@ -44,7 +44,7 @@
       else{
 
         signUpData.password = md5(signUpData.password);
-        $http.post(BASE_CONFIG.getServerUrl("p/users/addUser"), signUpData, BASE_CONFIG.headers)
+        $http.post(CommonFactory.getServerUrl("p/users/addUser"), signUpData, BASE_CONFIG.headers)
           .success(handleSuccess)
           .error(handleError);
         return promise;

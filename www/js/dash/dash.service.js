@@ -4,13 +4,13 @@
     .module('app.services')
     .service('DashService', DashService);
 
-  DashService.$inject = ["$q", "TOP", "BOTTOM", "SUMIATE_DATA_MODE"];
+  DashService.$inject = ["$http", "$q", "CommonFactory", "BASE_CONFIG", "TOP", "BOTTOM", "SUMIATE_DATA_MODE", "CODE_CONFIG"];
   /**
    * 主页面服务
    * @returns {{getSideItemData: Function, getTypeListData: Function}}
    * @constructor
    */
-  function DashService($q, TOP, BOTTOM, SUMIATE_DATA_MODE) {
+  function DashService($http, $q, CommonFactory, BASE_CONFIG, TOP, BOTTOM, SUMIATE_DATA_MODE, CODE_CONFIG) {
     return {
       getSideItemData: getSideItemData,
       getTypeListData: getTypeListData
@@ -39,7 +39,7 @@
       }
       else{
 
-        $http.post(BASE_CONFIG.getServerUrl("p/users/getTypeListData"), BASE_CONFIG.headers)
+        $http.get(CommonFactory.getServerUrl("p/dash/getTypeListData"), BASE_CONFIG.headers)
           .success(handleSuccess)
           .error(handleError);
         return promise;
@@ -66,7 +66,7 @@
        * @param config
        */
       function handleError(data, status, headers, config){
-        createResult = CODE_CONFIG.LOGIN_FAIL;
+        createResult = CODE_CONFIG.OPERATE_FAIL;
         deferred.reject(createResult);
       }
 
@@ -102,7 +102,7 @@
       else{
 
         // 真实数据
-        $http.post(BASE_CONFIG.getServerUrl("p/users/getSideItemData"), direction, BASE_CONFIG.headers)
+        $http.get(CommonFactory.getServerUrl("p/dash/getSideItemData"), {direction:direction})
           .success(handleSuccess)
           .error(handleError);
         return promise;
@@ -117,7 +117,12 @@
        * @param config
        */
       function handleSuccess(data, status, headers, config) {
-        createResult = data;
+        if(angular.isArray(data)){
+          createResult = data[0];
+        }
+        else{
+          createResult = data;
+        }
         deferred.resolve(createResult);
       }
 
@@ -129,7 +134,7 @@
        * @param config
        */
       function handleError(data, status, headers, config){
-        createResult = CODE_CONFIG.LOGIN_FAIL;
+        createResult = CODE_CONFIG.OPERATE_FAIL;
         deferred.reject(createResult);
       }
 

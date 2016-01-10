@@ -5,6 +5,7 @@
       .controller("AboutCtrl", AboutCtrl);
 
     AboutCtrl.$inject = ['$scope', 'AboutService'];
+
     /**
      * 公司介绍页面
      * @param $scope
@@ -12,6 +13,24 @@
      * @constructor
      */
     function AboutCtrl($scope, AboutService){
-        $scope.aboutData = AboutService.getAboutData();
+
+        AboutService.getAboutData().then(onAboutSuccess, onAboutFail);
+
+        /**
+         * 返回ABOUT成功处理
+         * @param result
+         */
+        function onAboutSuccess(result){
+          $scope.aboutData = result;
+        }
+
+        /**
+         * 返回ABOUT失败处理
+         * @param result
+         */
+        function onAboutFail(result){
+          $scope.aboutData = result;
+        }
     }
+
 })();
