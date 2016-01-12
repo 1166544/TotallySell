@@ -50,10 +50,31 @@
          */
         function updateProfile()
         {
-          $scope.showTip = true;
-          $timeout(function () {
-            $scope.showTip = false;
-          }, 3000);
+          ProfileService.updateProfileData($scope.profileData).then(updateSuccess, updateFail);
+        }
+
+        /**
+         * 更新成功处理
+         * @param result
+         */
+        function updateSuccess(result){
+          if(result){
+            $scope.showTip = true;
+            $timeout(function () {
+              $scope.showTip = false;
+            }, 3000);
+          }
+          else{
+            // hole
+          }
+        }
+
+        /**
+         * 更新失败处理
+         * @param result
+         */
+        function updateFail(result){
+            // hole
         }
 
         /**

@@ -33,28 +33,18 @@
       <file leaf-file-name="profile.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/profile/profile.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="822" max-vertical-offset="1914">
-              <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="3476">
+              <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47910863" vertical-offset="1680" max-vertical-offset="3058">
-              <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tab-profile.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tab-profile.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/tab-profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-51.857143" vertical-offset="0" max-vertical-offset="2508">
-              <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
+            <state vertical-scroll-proportion="-0.8927536" vertical-offset="1056" max-vertical-offset="2508">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -63,8 +53,8 @@
       <file leaf-file-name="profile.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/profile/profile.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1606">
-              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="2068">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -121,10 +111,10 @@
         <option value="$PROJECT_DIR$/www/js/shop/social.controller.js" />
         <option value="$PROJECT_DIR$/www/js/shop/social.service.js" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
-        <option value="$PROJECT_DIR$/www/js/profile/profile.controller.js" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/js/login/signup.service.js" />
         <option value="$PROJECT_DIR$/www/templates/tab-profile.html" />
+        <option value="$PROJECT_DIR$/www/js/profile/profile.controller.js" />
         <option value="$PROJECT_DIR$/www/js/profile/profile.service.js" />
       </list>
     </option>
@@ -727,12 +717,12 @@
       <workItem from="1452384543930" duration="10981000" />
       <workItem from="1452413688790" duration="68000" />
       <workItem from="1452418533792" duration="3325000" />
-      <workItem from="1452562820254" duration="7173000" />
+      <workItem from="1452562820254" duration="10030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241228000" />
+    <option name="totallyTimeSpent" value="244085000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1085,14 +1075,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="800" max-vertical-offset="1628">
-          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/shop/social.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2822695" vertical-offset="813" max-vertical-offset="3278">
@@ -1141,14 +1123,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/login/login.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="536" max-vertical-offset="1914">
-          <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/profile/social-sub.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.071429" vertical-offset="0" max-vertical-offset="528">
@@ -1157,34 +1131,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-profile.html">
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-51.857143" vertical-offset="0" max-vertical-offset="2508">
-          <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="3058">
+          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/login/login.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47910863" vertical-offset="536" max-vertical-offset="1914">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.632312" vertical-offset="866" max-vertical-offset="1628">
+          <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/profile/profile.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1606">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="2068">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/profile/profile.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="822" max-vertical-offset="1914">
-          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="3476">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47910863" vertical-offset="1680" max-vertical-offset="3058">
-          <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+        <state vertical-scroll-proportion="-0.8927536" vertical-offset="1056" max-vertical-offset="2508">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
           <folding />
         </state>
       </provider>

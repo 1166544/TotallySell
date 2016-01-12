@@ -12,9 +12,80 @@
     function ProfileService($http, $q, CommonFactory, BASE_CONFIG, SUMIATE_DATA_MODE, CODE_CONFIG){
 
         return {
-          getProfileData : getProfileData
+          getProfileData : getProfileData,
+          updateProfileData : updateProfileData
         }
 
+        /**
+         * 更新用户设置信息
+         */
+        function updateProfileData(profileData){
+            var resultData;
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+
+            if(SUMIATE_DATA_MODE){
+              resultData = true;
+              deferred.resolve(resultData);
+              return promise;
+            }
+            else{
+              // 依据ID查询当前用户设置数据
+              var cpData = angular.copy(profileData);
+              cpData.callEnable = parseBoolValue(profileData.callEnable);
+              cpData.messageEnable = parseBoolValue(profileData.messageEnable);
+              cpData.geoEnable = parseBoolValue(profileData.geoEnable);
+              cpData.id = CommonFactory.getUserLoginInfo().id;
+              $http.post(CommonFactory.getServerUrl("p/profile/updateProfile"), cpData, BASE_CONFIG.headers)
+                .success(handleSuccess)
+                .error(handleError);
+              return promise;
+            }
+
+            /**
+             * 布尔值转换
+             * @param value
+             * @returns {number}
+             */
+            function parseBoolValue(value){
+              return value == true ? 1 : 0;
+            }
+
+            /**
+             * 处理成功
+             * @param data
+             * @param status
+             * @param headers
+             * @param config
+             */
+            function handleSuccess(data, status, headers, config) {
+              if(data.code === CODE_CONFIG.OPERATE_SUCCESS.code){
+                resultData = true;
+              }
+              else{
+                resultData = false;
+              }
+              deferred.resolve(resultData);
+            }
+
+            /**
+             * 处理失败
+             * @param data
+             * @param status
+             * @param headers
+             * @param config
+             */
+            function handleError(data, status, headers, config){
+              resultData = CODE_CONFIG.OPERATE_FAIL;
+              deferred.reject(resultData);
+            }
+        }
+
+        /**
+         * 拿用户详细信息
+         * @param userId
+         * @returns {FileTransferOperation.promise|*|fileTransferOps.promise|promise|AnimateRunner.promise|qFactory.Deferred.promise}
+         */
         function getProfileData(userId){
 
           var resultData;
