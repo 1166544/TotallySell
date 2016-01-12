@@ -60,6 +60,7 @@
        */
       function handleSuccess(data, status, headers, config) {
         createResult = data;
+        CommonFactory.saveUserLoginInfo(data);
         deferred.resolve(createResult);
       }
 

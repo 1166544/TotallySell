@@ -13,7 +13,10 @@
    */
     function ProfileCtrl($scope, $state, $timeout, ProfileService, CommonFactory)
   {
-        $scope.profileData = ProfileService.getProfileData();
+        // 获取用户设置数据
+        ProfileService.getProfileData().then(onProfileSuccess, onProfileFail);
+
+        // 是否显示更新成功提示开关
         $scope.showTip = false;
 
         /**
@@ -25,6 +28,22 @@
          * 退出登录
          */
         $scope.logOut = logOut;
+
+        /**
+         * 返回Profile成功处理
+         * @param result
+         */
+        function onProfileSuccess(result){
+          $scope.profileData = result;
+        }
+
+        /**
+         * 返回Profile失败处理
+         * @param result
+         */
+        function onProfileFail(result){
+          $scope.profileData = result;
+        }
 
         /**
          * 更新资料
