@@ -70,14 +70,14 @@ angular.module('app.routes', [])
     .state('login', {
       url: '/page1',
       templateUrl: 'templates/login/login.html',
-      controller: 'loginCtrl'
+      controller: 'LoginCtrl'
     })
 
     // 注册页面
     .state('signup', {
       url: '/page2',
       templateUrl: 'templates/login/signup.html',
-      controller: 'signupCtrl'
+      controller: 'SignUpCtrl'
     })
 
     // DELIVERY页面
@@ -86,7 +86,7 @@ angular.module('app.routes', [])
       views: {
         'tab-dash': {
           templateUrl: 'templates/dash/delivery.html',
-          controller: 'deliveryCtrl'
+          controller: 'DeliveryCtrl'
         }
       }
     })
@@ -119,16 +119,18 @@ angular.module('app.routes', [])
       views:{
         'tab-dash':{
           templateUrl:'templates/list/list.html',
-          controller:'listCtrl'
+          controller:'ListCtrl'
         }
       }
     })
+
+    // LIST详细页面
     .state('tab.detail',{
-      url: '/pageDetail/:aId',
+      url: '/pageDetail/:aId/:pName/:pPrice',
       views:{
         'tab-dash':{
           templateUrl:'templates/list/list-details.html',
-          controller:'listDetailCtrl'
+          controller:'ListDetailCtrl'
         }
       }
     })
@@ -137,7 +139,7 @@ angular.module('app.routes', [])
     .state('order', {
       url: '/page7',
       templateUrl: 'templates/cart/order.html',
-      controller: 'orderCtrl'
+      controller: 'OrderCtrl'
     })
     ;
 

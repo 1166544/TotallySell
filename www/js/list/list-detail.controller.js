@@ -2,21 +2,21 @@
   'use strict';
   angular
     .module('app.controllers')
-    .controller('listDetailCtrl', ListDetailCtrl);
+    .controller('ListDetailCtrl', ListDetailCtrl);
 
-  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CommonFactory', 'GOOD', 'UPDATE_CART'];
+  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CommonFactory', 'GOOD', 'UPDATE_CART', 'SUMIATE_DATA_MODE'];
   /**
    * 列表详细页面控制器
    * @param $scope
    * @param $state
    * @constructor
    */
-  function ListDetailCtrl($scope, $state, ListService, CommonFactory, GOOD, UPDATE_CART)
+  function ListDetailCtrl($scope, $state, ListService, CommonFactory, GOOD, UPDATE_CART, SUMIATE_DATA_MODE)
   {
     // console.log($state.params.aId);
-    var pageParm = $state.params.aId;
-    $scope.detailListData = ListService.getDetailListData(pageParm);
-    $scope.customerNoteData = ListService.getCustomerNoteData(pageParm, GOOD);
+    var linkId = $state.params.aId;
+    var pName = $state.params.pName;
+    var pPrice = $state.params.pPrice;
     $scope.colorList = CommonFactory.getColorList();
     $scope.sizeList = CommonFactory.getSizeList();
     $scope.noteCommitList = CommonFactory.getNoteCommitList();
@@ -24,12 +24,26 @@
     $scope.refreshNoteData = refreshNoteData;
     $scope.addToCart = addToCart;
 
+    if(SUMIATE_DATA_MODE){
+        $scope.detailListData = ListService.getDetailListData(linkId);
+        $scope.customerNoteData = ListService.getCustomerNoteData(linkId, GOOD);
+    }
+    else{
+        ListService.getListPageDetailData(linkId, pName, pPrice).then(onDetailSuccess, onDetailFail);
+        ListService.getDetailNoteData(linkId, GOOD).then(onNoteDataSuccess, onDetailFail);
+    }
+
     /**
      * 更新评论数据
      * @param type
      */
     function refreshNoteData(type){
-      $scope.customerNoteData = ListService.getCustomerNoteData(pageParm, type);
+      if(SUMIATE_DATA_MODE){
+        $scope.customerNoteData = ListService.getCustomerNoteData(pageParm, type);
+      }
+      else{
+        ListService.getDetailNoteData(linkId, type).then(onNoteDataSuccess, onDetailFail);
+      }
     }
 
     /**
@@ -50,6 +64,30 @@
 
       // 跳至结算页面,并传入计算总价位参数
       $state.go("tab.cart", {aId:UPDATE_CART});
+    }
+
+    /**
+     * 详细数据获取成功
+     * @param result
+     */
+    function onDetailSuccess(result){
+      $scope.detailListData = result;
+    }
+
+    /**
+     * 评论数据获取成功
+     * @param result
+     */
+    function onNoteDataSuccess(result){
+      $scope.customerNoteData = result;
+    }
+
+    /**
+     * 数据获取失败
+     * @param result
+     */
+    function onDetailFail(result){
+      // hole
     }
   }
 })();

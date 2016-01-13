@@ -32,23 +32,14 @@
             else{
               // 依据ID查询当前用户设置数据
               var cpData = angular.copy(profileData);
-              cpData.callEnable = parseBoolValue(profileData.callEnable);
-              cpData.messageEnable = parseBoolValue(profileData.messageEnable);
-              cpData.geoEnable = parseBoolValue(profileData.geoEnable);
+              cpData.callEnable = CommonFactory.parseBoolValue(profileData.callEnable);
+              cpData.messageEnable = CommonFactory.parseBoolValue(profileData.messageEnable);
+              cpData.geoEnable = CommonFactory.parseBoolValue(profileData.geoEnable);
               cpData.id = CommonFactory.getUserLoginInfo().id;
               $http.post(CommonFactory.getServerUrl("p/profile/updateProfile"), cpData, BASE_CONFIG.headers)
                 .success(handleSuccess)
                 .error(handleError);
               return promise;
-            }
-
-            /**
-             * 布尔值转换
-             * @param value
-             * @returns {number}
-             */
-            function parseBoolValue(value){
-              return value == true ? 1 : 0;
             }
 
             /**

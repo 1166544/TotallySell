@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('app.controllers')
-    .controller('signupCtrl', SignupCtrl);
+    .controller('SignUpCtrl', SignupCtrl);
 
   SignupCtrl.$inject = ["$scope", "$state", "SignUpService", "CODE_CONFIG"];
   /**

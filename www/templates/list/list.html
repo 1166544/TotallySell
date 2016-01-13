@@ -3,14 +3,14 @@
 
       <ion-slide-box show-pager="true" auto-play="true">
         <ion-slide ng-repeat="item in listData">
-            <a href="{{item.link}}"><img class="total-side-box" src="{{item.src}}"></a>
+            <a href="#tab/pageDetail/{{item.id}}/T-shirt/98"><img class="total-side-box" src="{{item.src}}"></a>
             <!--<h5>{{item.title}}</h5>-->
         </ion-slide>
       </ion-slide-box>
 
       <div class="total-list-box">
 
-        <a ng-repeat="item in listProductData" href="{{item.link}}">
+        <a ng-repeat="item in listProductData" href="#tab/pageDetail/{{item.id}}/{{item.pName}}/{{item.pPrice}}">
           <div class="total-list-item">
             <img src="{{item.src}}">
             <h1>{{item.title}}</h1>

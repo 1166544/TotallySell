@@ -29,9 +29,9 @@
       if(SUMIATE_DATA_MODE){
 
         var resultData = [
-          {name: "FOR MEN", link: "men"},
-          {name: "FOR WOMEN", link: "women"},
-          {name: "FOR KIDS", link: "kids"}
+          {id: "men", name: "FOR MEN", link: "men"},
+          {id: "women", name: "FOR WOMEN", link: "women"},
+          {id: "kids", name: "FOR KIDS", link: "kids"}
         ];
         deferred.resolve(resultData);
         return promise;
@@ -89,10 +89,10 @@
         var listData;
         switch (direction) {
           case TOP:
-            listData = {name: "SUITES", quality: 88, link: "suites"};
+            listData = {id: "suites", name: "SUITES", quality: 88, link: "suites"};
             break;
           case BOTTOM:
-            listData = {name: "DRESS", quality: 31, link: "shirts"};
+            listData = {id: "shirts", name: "DRESS", quality: 31, link: "shirts"};
             break;
         }
         deferred.resolve(listData);

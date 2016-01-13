@@ -11,7 +11,7 @@
     </div>
 
     <!--顶边BANNER-->
-    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{topItemData.link}}">
+    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{topItemData.id}}">
       <div class="row total-banner-row">
         <div class="col total-banner-up">
           <p class="total-banner-p">{{topItemData.name}}</p>
@@ -23,14 +23,14 @@
     <div class="row total-banner-row">
       <div class="col total-banner-cel">
         <p ng-repeat="item in typeListData">
-          <a class="total-button total-button-black" menu-close="" href="#tab/pageList/{{item.link}}">{{item.name | uppercase}}</a>
+          <a class="total-button total-button-black" menu-close="" href="#tab/pageList/{{item.id}}">{{item.name | uppercase}}</a>
         </p>
       </div>
       <div class="col total-banner-cel-right"></div>
     </div>
 
     <!--中间BANNER-->
-    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{bottomItemData.link}}">
+    <a class="total-button row total-banner-row" menu-close="" href="#tab/pageList/{{bottomItemData.id}}">
       <div class="col">
         <div class="col total-banner-center">
           <p class="total-banner-p">{{bottomItemData.name}}</p>

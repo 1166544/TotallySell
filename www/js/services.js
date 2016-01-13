@@ -27,6 +27,16 @@
         getServerUrl:getServerUrl,
 
         /**
+         * 将BOOL转成0/1数据
+         */
+        parseBoolValue:parseBoolValue,
+
+        /**
+         * 将数字转成BOOL
+         */
+        reverseBoolValue:reverseBoolValue,
+
+        /**
          * 颜色列表
          * @returns {{label: string, data: number}[]}
          */
@@ -61,6 +71,25 @@
          */
         clearUserInfo:clearUserInfo
       };
+
+
+      /**
+       * 将布尔值转换成0/1
+       * @param value
+       * @returns {number}
+       */
+      function parseBoolValue(value){
+        return value == true ? 1 : 0;
+      }
+
+      /**
+       * 将数字转换成BOOL
+       * @param value
+       * @returns {boolean}
+       */
+      function reverseBoolValue(value){
+        return value >= 1 ? true : false;
+      }
 
       /**
        * 拼接服务器连接串

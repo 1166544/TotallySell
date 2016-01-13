@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('app.controllers')
-    .controller('deliveryCtrl', DeliveryCtrl);
+    .controller('DeliveryCtrl', DeliveryCtrl);
 
   DeliveryCtrl.$inject = ["$scope"];
   function DeliveryCtrl($scope) {
