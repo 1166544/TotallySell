@@ -108,11 +108,92 @@
           }
         }
 
-        function deleteCartData(){
+        /**
+         * 删除购物车某一项数据
+         */
+        function deleteCartData(item){
+
+          var resultData;
+          var deferred = $q.defer();
+          var promise = deferred.promise;
+
+          var params = {
+            productId:item.id,
+            userId:CommonFactory.getUserLoginInfo().id
+          };
+          $http.post(CommonFactory.getServerUrl("p/cart/deleteCartData"), params, BASE_CONFIG.headers)
+            .success(handleSuccess)
+            .error(handleError);
+          return promise;
+
+          /**
+           * 处理成功
+           * @param data
+           * @param status
+           * @param headers
+           * @param config
+           */
+          function handleSuccess(data, status, headers, config) {
+            resultData = data;
+            resultData.id = item.id;
+            deferred.resolve(resultData);
+          }
+
+          /**
+           * 处理失败
+           * @param data
+           * @param status
+           * @param headers
+           * @param config
+           */
+          function handleError(data, status, headers, config){
+            resultData = CODE_CONFIG.OPERATE_FAIL;
+            deferred.reject(resultData);
+          }
 
         }
 
+        /**
+         * 清空购物车
+         * @returns {FileTransferOperation.promise|*|fileTransferOps.promise|promise|AnimateRunner.promise|qFactory.Deferred.promise}
+         */
         function clearCartData(){
+
+          var resultData;
+          var deferred = $q.defer();
+          var promise = deferred.promise;
+
+          var params = {
+            userId:CommonFactory.getUserLoginInfo().id
+          };
+          $http.post(CommonFactory.getServerUrl("p/cart/clearCartData"), params, BASE_CONFIG.headers)
+            .success(handleSuccess)
+            .error(handleError);
+          return promise;
+
+          /**
+           * 处理成功
+           * @param data
+           * @param status
+           * @param headers
+           * @param config
+           */
+          function handleSuccess(data, status, headers, config) {
+            resultData = data;
+            deferred.resolve(resultData);
+          }
+
+          /**
+           * 处理失败
+           * @param data
+           * @param status
+           * @param headers
+           * @param config
+           */
+          function handleError(data, status, headers, config){
+            resultData = CODE_CONFIG.OPERATE_FAIL;
+            deferred.reject(resultData);
+          }
 
         }
 

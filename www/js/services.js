@@ -149,6 +149,11 @@
        * @returns {*}
        */
       function getUserLoginInfo(){
+        if(!user){
+          var user = {};
+          user.id = 4;
+          return user;
+        }
         return user;
       }
 

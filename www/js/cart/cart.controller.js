@@ -4,13 +4,13 @@
     .module('app.controllers')
     .controller('CartCtrl', CartCtrl);
 
-  CartCtrl.$inject = ["$scope", '$state', 'CartService', 'CommonFactory', 'UPDATE_CART', 'SUMIATE_DATA_MODE', 'CODE_CONFIG'];
+  CartCtrl.$inject = ["$scope", '$state', '$ionicActionSheet', 'CartService', 'CommonFactory', 'UPDATE_CART', 'SUMIATE_DATA_MODE', 'CODE_CONFIG'];
   /**
    * 购物车控制器
    * @param $scope
    * @constructor
    */
-  function CartCtrl($scope, $state, CartService, CommonFactory, UPDATE_CART, SUMIATE_DATA_MODE, CODE_CONFIG)
+  function CartCtrl($scope, $state, $ionicActionSheet, CartService, CommonFactory, UPDATE_CART, SUMIATE_DATA_MODE, CODE_CONFIG)
   {
     // 定义购物车列表数据
     $scope.cartDataList = CommonFactory.cartDataList;
@@ -20,6 +20,12 @@
 
     // 转换尺寸简写
     $scope.getSizeDesc = getSizeDesc;
+
+    // 删除某一项数据
+    $scope.deleteCartData = deleteCartData;
+
+    // 清空购物车
+    $scope.emptyCart = emptyCart;
 
     // 对导航数据分块处理
     switch ($state.params.aId)
@@ -43,6 +49,100 @@
      */
     function getCartData(){
       CartService.getCartData().then(onCartSuccess, onCartFail);
+    }
+
+    /**
+     * 清空购物车
+     */
+    function emptyCart(){
+
+      if(!SUMIATE_DATA_MODE){
+        var hideSheet = $ionicActionSheet.show({
+          buttons: [],
+          destructiveText: 'Empty',
+          titleText: 'Are you sure want to empy the cart?',
+          cancelText: 'Cancel',
+          cancel: function() {
+            hideSheet();
+          },
+          destructiveButtonClicked:function(){
+            CartService.clearCartData().then(onClearSuccess, onCartFail);
+            hideSheet();
+          },
+          buttonClicked: function(index) {
+            return true;
+          }
+        });
+      }
+
+    }
+
+    /**
+     * 删除CART数据
+     * @param item
+     */
+    function deleteCartData(item){
+
+      if(!SUMIATE_DATA_MODE){
+        var hideSheet = $ionicActionSheet.show({
+          buttons: [],
+          destructiveText: 'Delete',
+          titleText: 'Are you sure want to delete this product?',
+          cancelText: 'Cancel',
+          cancel: function() {
+            hideSheet();
+          },
+          destructiveButtonClicked:function(){
+            CartService.deleteCartData(item).then(onDeleteSuccess, onCartFail);
+            hideSheet();
+          },
+          buttonClicked: function(index) {
+            return true;
+          }
+        });
+      }
+
+    }
+
+    /**
+     * 清空结果返回
+     * @param result
+     */
+    function onClearSuccess(result){
+
+      if(result.code == CODE_CONFIG.OPERATE_SUCCESS.code){
+        var i;
+        var total = $scope.cartDataList.length;
+        var item;
+        for(i=0; i < total; i++){
+          item = $scope.cartDataList[i];
+            $scope.cartDataList.splice(i, 1);
+        }
+        console.log(result.msg);
+      }
+
+    }
+
+    /**
+     * 删除成功处理
+     * @param result
+     */
+    function onDeleteSuccess(result){
+
+      if(result.code == CODE_CONFIG.OPERATE_SUCCESS.code){
+        var i;
+        var total = $scope.cartDataList.length;
+        var item;
+        for(i=0; i < total; i++){
+          item = $scope.cartDataList[i];
+          if(item.id == result.id){
+            $scope.cartDataList.splice(i, 1);
+            break;
+          }
+        }
+        console.log(result.msg);
+      }
+
     }
 
     /**
