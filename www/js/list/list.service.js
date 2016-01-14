@@ -188,6 +188,7 @@
          */
         function handleSuccess(data, status, headers, config) {
           resultData = data;
+          resultData.id = linkId;
           resultData.pName = pName;
           resultData.pPrice = pPrice;
           deferred.resolve(resultData);
