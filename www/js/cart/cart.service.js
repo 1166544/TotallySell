@@ -35,7 +35,7 @@
          */
          function saveEditItem(item){
            editItem = angular.copy(item);
-           console.log(editItem);
+           // console.log(editItem);
          }
 
         /**
@@ -60,6 +60,10 @@
           var promise = deferred.promise;
           var params = {};
           item.userId = CommonFactory.getUserLoginInfo().id;
+
+          if(!item.hasOwnProperty('productId')){
+            item.productId = item.id;
+          }
 
           $http.post(CommonFactory.getServerUrl("p/cart/addCartData"), item, BASE_CONFIG.headers)
             .success(handleSuccess)

@@ -167,7 +167,7 @@
     function countTotalCost(){
       var total = 0;
       angular.forEach($scope.cartDataList, function(value, key){
-        total += parseInt(value.pPrice);
+        total += parseInt(value.pPrice) * parseInt(value.quality);
       });
       $scope.totalCost = total;
     }
