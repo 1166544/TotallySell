@@ -55,7 +55,7 @@
 
       // 更新结算数据
       var item = {
-        productId:$scope.detailListData.id,
+        id:$scope.detailListData.id,
         src:$scope.detailListData.sideShowList[0].src,
         pName:$scope.detailListData.pName,
         pPrice:$scope.detailListData.pPrice,

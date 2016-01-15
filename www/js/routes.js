@@ -56,6 +56,18 @@ angular.module('app.routes', [])
       }
     })
 
+    // 更改所购买产品颜色/数量等参数页面
+    .state('tab.cartEdit', {
+      url: '/cartEdit/:aId',
+      cache: false,
+      views: {
+        'tab-cart': {
+          templateUrl: 'templates/cart/cart-edit.html',
+          controller: 'CartEditCtrl'
+        }
+      }
+    })
+
     .state('tab.profile', {
       url: '/profile',
       views: {
@@ -133,15 +145,7 @@ angular.module('app.routes', [])
           controller:'ListDetailCtrl'
         }
       }
-    })
-
-    // 订单页面
-    .state('order', {
-      url: '/page7',
-      templateUrl: 'templates/cart/order.html',
-      controller: 'OrderCtrl'
-    })
-    ;
+    });
 
   // 默认页面
   $urlRouterProvider.otherwise('/page1');

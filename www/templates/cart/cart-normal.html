@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col col-75">
+    <p class="total-cart-title">{{item.pName}}</p>
+    <p class="total-cart-quality">{{item.quality}}</p>
+  </div>
+  <div class="col">
+    <h3 class="total-cart-size total-cart-size-s">{{getSizeDesc(item.size)}}</h3>
+    <p class="total-cart-price">{{item.pPrice | currency:'$'}}</p>
+  </div>
+</div>

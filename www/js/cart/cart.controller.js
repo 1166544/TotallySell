@@ -18,30 +18,29 @@
     // 总花费
     $scope.totalCost = 0;
 
-    // 转换尺寸简写
-    $scope.getSizeDesc = getSizeDesc;
-
     // 删除某一项数据
     $scope.deleteCartData = deleteCartData;
 
     // 清空购物车
     $scope.emptyCart = emptyCart;
 
-    // 对导航数据分块处理
-    switch ($state.params.aId)
-    {
-      // console.log($state.params.aId);
-      case UPDATE_CART:
-            if(SUMIATE_DATA_MODE){
-              countTotalCost();
-            }
-            else{
-              getCartData();
-            }
-            break;
-      default :
-        // 空处理，什么也不做
-            break;
+    // 编辑购物车数据
+    $scope.editCart = editCart;
+
+    // console.log($state.params.aId);
+    if(SUMIATE_DATA_MODE){
+      countTotalCost();
+    }
+    else{
+      getCartData();
+    }
+
+    /**
+     * 临时存取编辑数据
+     * @param item
+     */
+    function editCart(item){
+      CartService.saveEditItem(item);
     }
 
     /**
@@ -167,21 +166,10 @@
       */
     function countTotalCost(){
       var total = 0;
-      var item;
-      for(var i=0; i < $scope.cartDataList.length; i++){
-        item = $scope.cartDataList[i];
-        total += parseInt(item.pPrice);
-      }
+      angular.forEach($scope.cartDataList, function(value, key){
+        total += parseInt(value.pPrice);
+      });
       $scope.totalCost = total;
-    }
-
-    /**
-     * 转换尺寸简写
-     * @param str
-     * @returns {*|Array.<T>|string|Blob}
-     */
-    function getSizeDesc(str){
-      return str.slice(0,1);
     }
   }
 })();

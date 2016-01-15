@@ -1,6 +1,1 @@
-angular.module('app.directives', [])
-
-.directive('blankDirective', [function(){
-
-}]);
-
+angular.module('app.directives', ['app.services', 'app.controllers']);

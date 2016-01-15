@@ -1,33 +1,27 @@
-<ion-view title="Cart">
-
-  <!--左边设置菜单 -->
-  <ion-nav-buttons side="secondary">
-    <!--<a class="button button-icon ion-ios-compose-outline" href="#/tab/edit">EDIT</a>-->
-  </ion-nav-buttons>
+<ion-view title="My Cart">
 
     <ion-content>
       <ion-list>
+        <ion-item ng-repeat="item in cartDataList"
+                  class="item item-thumbnail-left item-text-wrap"
+                  href="#/tab/cartEdit/{{item.id}}" ng-click="editCart(item)">
 
-        <ion-item ng-repeat="item in cartDataList" class="item item-thumbnail-left item-text-wrap" href="#">
+          <!--图片-->
           <img src="{{item.src}}">
-          <div class="row">
-            <div class="col col-75">
-              <p class="total-cart-title">{{item.pName}}</p>
-              <p class="total-cart-quality">{{item.quality}}</p>
-            </div>
-            <div class="col">
-              <h3 class="total-cart-size total-cart-size-s">{{getSizeDesc(item.size)}}</h3>
-              <p class="total-cart-price">{{item.pPrice | currency:'$'}}</p>
-            </div>
-          </div>
+
+          <!--自定义LIST组件-->
+          <cart-Normal data="item"></cart-Normal>
+
+          <!--删除按钮-->
           <ion-option-button class="button-assertive"
                              ng-click="deleteCartData(item)">
             <i class="icon ion-trash-a"></i>
           </ion-option-button>
-        </ion-item>
 
+        </ion-item>
       </ion-list>
 
+      <!--总花费统计-->
       <div class="row" ng-show="cartDataList.length != 0">
         <div class="col col-75">
           <p>TOTAL</p>
@@ -37,12 +31,14 @@
         </div>
       </div>
 
+      <!--空购物车提示-->
       <div class="card calm-bg" ng-show="cartDataList.length == 0">
         <div class="item item-text-wrap">
           <h1>Your cart is empty.</h1>
         </div>
       </div>
 
+      <!--清空购物车-->
       <button class="button button-full button-assertive" ng-show="cartDataList.length != 0" ng-click="emptyCart()">
         <i class="icon ion-trash-a"></i> EMPTY CART
       </button>
