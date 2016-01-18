@@ -17,7 +17,7 @@ angular.module('app.constants', [])
 
 // 服务器配置
 .constant("BaseConfig", {
-  socketUrl : "http://12.0.0.1:3000/",                                             // SOCKET地址
+  socketUrl : "http://127.0.0.1:3000/",                                             // SOCKET地址
   serverUrl : "http://127.0.0.1:1337/",                                            // 服务器地址
   headers : { headers: {'Content-Type' : "application/x-www-form-urlencoded"} }    // 请求消息头
 })
