@@ -4,16 +4,16 @@
     .module('app.controllers')
     .controller('ListCtrl', ListCtrl);
 
-  ListCtrl.$inject = ['$scope', '$state', 'ListService', "SUMIATE_DATA_MODE"];
+  ListCtrl.$inject = ['$scope', '$state', 'ListService', "AppConfig"];
   /**
    * 列表页面控制器
    * @param $scope
    * @param $state
    * @constructor
    */
-  function ListCtrl($scope, $state, ListService, SUMIATE_DATA_MODE) {
+  function ListCtrl($scope, $state, ListService, AppConfig) {
 
-    if(SUMIATE_DATA_MODE){
+    if(AppConfig.SUMIATE_DATA_MODE){
       // console.log($state.params.aId);
       $scope.listData = ListService.getListData($state.params.aId);
       $scope.listProductData = ListService.getListProductData($state.params.aId);

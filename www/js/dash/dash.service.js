@@ -4,13 +4,13 @@
     .module('app.services')
     .service('DashService', DashService);
 
-  DashService.$inject = ["$http", "$q", "CommonFactory", "BASE_CONFIG", "TOP", "BOTTOM", "SUMIATE_DATA_MODE", "CODE_CONFIG"];
+  DashService.$inject = ["$http", "$q", "CommonFactory", "BaseConfig", "AppConfig", "CodeConfig"];
   /**
    * 主页面服务
    * @returns {{getSideItemData: Function, getTypeListData: Function}}
    * @constructor
    */
-  function DashService($http, $q, CommonFactory, BASE_CONFIG, TOP, BOTTOM, SUMIATE_DATA_MODE, CODE_CONFIG) {
+  function DashService($http, $q, CommonFactory, BaseConfig, AppConfig, CodeConfig) {
     return {
       getSideItemData: getSideItemData,
       getTypeListData: getTypeListData
@@ -26,7 +26,7 @@
       var deferred = $q.defer();
       var promise = deferred.promise;
 
-      if(SUMIATE_DATA_MODE){
+      if(AppConfig.SUMIATE_DATA_MODE){
 
         var resultData = [
           {id: "men", name: "FOR MEN", link: "men"},
@@ -39,7 +39,7 @@
       }
       else{
 
-        $http.get(CommonFactory.getServerUrl("p/dash/getTypeListData"), BASE_CONFIG.headers)
+        $http.get(CommonFactory.getServerUrl("p/dash/getTypeListData"), BaseConfig.headers)
           .success(handleSuccess)
           .error(handleError);
         return promise;
@@ -66,7 +66,7 @@
        * @param config
        */
       function handleError(data, status, headers, config){
-        createResult = CODE_CONFIG.OPERATE_FAIL;
+        createResult = CodeConfig.OPERATE_FAIL;
         deferred.reject(createResult);
       }
 
@@ -83,15 +83,15 @@
       var deferred = $q.defer();
       var promise = deferred.promise;
 
-      if(SUMIATE_DATA_MODE){
+      if(AppConfig.SUMIATE_DATA_MODE){
 
         // 模拟数据
         var listData;
         switch (direction) {
-          case TOP:
+          case AppConfig.TOP:
             listData = {id: "suites", name: "SUITES", quality: 88, link: "suites"};
             break;
-          case BOTTOM:
+          case AppConfig.BOTTOM:
             listData = {id: "shirts", name: "DRESS", quality: 31, link: "shirts"};
             break;
         }
@@ -134,7 +134,7 @@
        * @param config
        */
       function handleError(data, status, headers, config){
-        createResult = CODE_CONFIG.OPERATE_FAIL;
+        createResult = CodeConfig.OPERATE_FAIL;
         deferred.reject(createResult);
       }
 

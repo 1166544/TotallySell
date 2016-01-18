@@ -4,17 +4,17 @@
       .module('app.services')
       .service("SignUpService", SignUpService);
 
-  SignUpService.$inject = ["$http", "$q", "CommonFactory", "SUMIATE_DATA_MODE", "BASE_CONFIG", "CODE_CONFIG"];
+  SignUpService.$inject = ["$http", "$q", "CommonFactory", "AppConfig", "BaseConfig", "CodeConfig"];
 
   /**
    * 注册用户服务
    * @param $http
    * @param SUMIATE_DATA_MODE
-   * @param BASE_CONFIG
+   * @param BaseConfig
    * @returns {{signUp: signUp}}
    * @constructor
    */
-  function SignUpService($http, $q, CommonFactory, SUMIATE_DATA_MODE, BASE_CONFIG, CODE_CONFIG){
+  function SignUpService($http, $q, CommonFactory, AppConfig, BaseConfig, CodeConfig){
 
     return {
       signUp : signUp
@@ -32,10 +32,10 @@
       var promise = deferred.promise;
 
       // 模拟数据
-      if(SUMIATE_DATA_MODE)
+      if(AppConfig.SUMIATE_DATA_MODE)
       {
 
-        createResult = CODE_CONFIG.LOGIN_SUCCESS;
+        createResult = CodeConfig.LOGIN_SUCCESS;
         deferred.resolve(createResult);
         return promise;
 
@@ -44,7 +44,7 @@
       else{
 
         signUpData.password = md5(signUpData.password);
-        $http.post(CommonFactory.getServerUrl("p/users/addUser"), signUpData, BASE_CONFIG.headers)
+        $http.post(CommonFactory.getServerUrl("p/users/addUser"), signUpData, BaseConfig.headers)
           .success(handleSuccess)
           .error(handleError);
         return promise;
@@ -72,7 +72,7 @@
        * @param config
        */
       function handleError(data, status, headers, config){
-        createResult = CODE_CONFIG.LOGIN_FAIL;
+        createResult = CodeConfig.LOGIN_FAIL;
         deferred.reject(createResult);
       }
 

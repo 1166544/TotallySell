@@ -4,12 +4,12 @@
       .module('app.services')
       .service("ProfileService", ProfileService);
 
-    ProfileService.$inject = ["$http", "$q", "CommonFactory", "BASE_CONFIG", "SUMIATE_DATA_MODE", "CODE_CONFIG"];
+    ProfileService.$inject = ["$http", "$q", "CommonFactory", "BaseConfig", "AppConfig", "CodeConfig"];
     /**
      * Profile页面service
      * @constructor
      */
-    function ProfileService($http, $q, CommonFactory, BASE_CONFIG, SUMIATE_DATA_MODE, CODE_CONFIG){
+    function ProfileService($http, $q, CommonFactory, BaseConfig, AppConfig, CodeConfig){
 
         return {
           getProfileData : getProfileData,
@@ -24,7 +24,7 @@
             var deferred = $q.defer();
             var promise = deferred.promise;
 
-            if(SUMIATE_DATA_MODE){
+            if(AppConfig.SUMIATE_DATA_MODE){
               resultData = true;
               deferred.resolve(resultData);
               return promise;
@@ -36,7 +36,7 @@
               cpData.messageEnable = CommonFactory.parseBoolValue(profileData.messageEnable);
               cpData.geoEnable = CommonFactory.parseBoolValue(profileData.geoEnable);
               cpData.id = CommonFactory.getUserLoginInfo().id;
-              $http.post(CommonFactory.getServerUrl("p/profile/updateProfile"), cpData, BASE_CONFIG.headers)
+              $http.post(CommonFactory.getServerUrl("p/profile/updateProfile"), cpData, BaseConfig.headers)
                 .success(handleSuccess)
                 .error(handleError);
               return promise;
@@ -50,7 +50,7 @@
              * @param config
              */
             function handleSuccess(data, status, headers, config) {
-              if(data.code === CODE_CONFIG.OPERATE_SUCCESS.code){
+              if(data.code === CodeConfig.OPERATE_SUCCESS.code){
                 resultData = true;
               }
               else{
@@ -67,7 +67,7 @@
              * @param config
              */
             function handleError(data, status, headers, config){
-              resultData = CODE_CONFIG.OPERATE_FAIL;
+              resultData = CodeConfig.OPERATE_FAIL;
               deferred.reject(resultData);
             }
         }
@@ -83,7 +83,7 @@
           var deferred = $q.defer();
           var promise = deferred.promise;
 
-          if(SUMIATE_DATA_MODE){
+          if(AppConfig.SUMIATE_DATA_MODE){
             resultData = {
               callEnable:true,
               messageEnable:false,
@@ -133,7 +133,7 @@
            * @param config
            */
           function handleError(data, status, headers, config){
-            resultData = CODE_CONFIG.OPERATE_FAIL;
+            resultData = CodeConfig.OPERATE_FAIL;
             deferred.reject(resultData);
           }
 

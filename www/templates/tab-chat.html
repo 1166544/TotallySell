@@ -7,7 +7,12 @@
     </ion-content>
 
     <ion-footer-bar class="bar-frosted">
-      <button class="button button-clear button-positive" ng-click="add()">Add Message</button>
+          <label class="item-input-wrapper">
+            <input type="text" class="inputItem" ng-model="inputMsg" placeholder="Pls enter message here.">
+          </label>
+          <button class="button button-small button-calm" ng-click="send()">
+            Send
+          </button>
     </ion-footer-bar>
 
 </ion-view>

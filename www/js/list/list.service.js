@@ -4,22 +4,22 @@
     .module('app.services')
     .service("ListService", ListService);
 
-  ListService.$inject = ["$http", "$q", "GOOD","MIDDLE","BAD", "CommonFactory", "CODE_CONFIG"];
+  ListService.$inject = ["$http", "$q", "AppConfig", "CommonFactory", "CodeConfig"];
   /**
    * List列表数据
    * @returns {{getListData: Function}}
    * @constructor
    */
-  function ListService($http, $q, GOOD, MIDDLE, BAD, CommonFactory, CODE_CONFIG)
+  function ListService($http, $q, AppConfig, CommonFactory, CodeConfig)
   {
     return {
-      getListData : getListData,
-      getListProductData : getListProductData,
-      getDetailListData : getDetailListData,
-      getCustomerNoteData : getCustomerNoteData,
-      getListPageData : getListPageData,
+      getListData           : getListData,
+      getListProductData    : getListProductData,
+      getDetailListData     : getDetailListData,
+      getCustomerNoteData   : getCustomerNoteData,
+      getListPageData       : getListPageData,
       getListPageDetailData : getListPageDetailData,
-      getDetailNoteData : getDetailNoteData
+      getDetailNoteData     : getDetailNoteData
     }
 
       /**
@@ -89,7 +89,7 @@
       function getCustomerNoteData(queryData, type){
         var listData;
         switch(type){
-          case GOOD:
+          case AppConfig.GOOD:
             listData = [
               {src:"../../img/feed_1.jpg", name:"Venkman", note:"Back off, man. I'm a popular.", favorites:true},
               {src:"../../img/feed_2.jpg", name:"Egon", note:"We're gonna go call cs num.", favorites:false},
@@ -97,7 +97,7 @@
               {src:"../../img/feed_5.jpg", name:"Tully", note:"Okay, is quality best?", favorites:false}
             ];
             break;
-          case MIDDLE:
+          case AppConfig.MIDDLE:
             listData = [
               {src:"../../img/feed_2.jpg", name:"Egon", note:"We're gonna go call cs num.", favorites:false},
               {src:"../../img/feed_5.jpg", name:"Tully", note:"Okay, is quality best?", favorites:false},
@@ -105,7 +105,7 @@
               {src:"../../img/feed_1.jpg", name:"Venkman", note:"Back off, man. I'm a popular.", favorites:true}
             ];
             break;
-          case BAD:
+          case AppConfig.BAD:
             listData = [
               {src:"../../img/feed_3.jpg", name:"Ray", note:"Ugly little on clothes, isn't he?", favorites:true},
               {src:"../../img/feed_1.jpg", name:"Venkman", note:"Back off, man. I'm a popular.", favorites:true},
@@ -158,7 +158,7 @@
          * @param config
          */
         function handleError(data, status, headers, config){
-          resultData = CODE_CONFIG.OPERATE_FAIL;
+          resultData = CodeConfig.OPERATE_FAIL;
           deferred.reject(resultData);
         }
       }
@@ -202,7 +202,7 @@
          * @param config
          */
         function handleError(data, status, headers, config){
-          resultData = CODE_CONFIG.OPERATE_FAIL;
+          resultData = CodeConfig.OPERATE_FAIL;
           deferred.reject(resultData);
         }
       }
@@ -217,13 +217,13 @@
         // 数据过滤
         var favorite;
         switch(type){
-          case GOOD:
+          case AppConfig.GOOD:
             favorite = 0;
             break;
-          case MIDDLE:
+          case AppConfig.MIDDLE:
             favorite = 1;
             break;
-          case BAD:
+          case AppConfig.BAD:
             favorite = 2;
             break;
         }
@@ -269,7 +269,7 @@
          * @param config
          */
         function handleError(data, status, headers, config){
-          resultData = CODE_CONFIG.OPERATE_FAIL;
+          resultData = CodeConfig.OPERATE_FAIL;
           deferred.reject(resultData);
         }
       }

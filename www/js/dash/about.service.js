@@ -4,14 +4,14 @@
       .module('app.services')
       .service("AboutService", AboutService);
 
-    AboutService.$inject = ["$http", "$q", "CommonFactory", "BASE_CONFIG", "SUMIATE_DATA_MODE", "CODE_CONFIG"];
+    AboutService.$inject = ["$http", "$q", "CommonFactory", "BaseConfig", "AppConfig", "CodeConfig"];
 
     /**
      * 公司简介服务
       * @returns {{getAboutData: getAboutData}}
      * @constructor
      */
-    function AboutService($http, $q, CommonFactory, BASE_CONFIG, SUMIATE_DATA_MODE, CODE_CONFIG){
+    function AboutService($http, $q, CommonFactory, BaseConfig, AppConfig, CodeConfig){
 
         return {
           getAboutData:getAboutData
@@ -27,7 +27,7 @@
           var deferred = $q.defer();
           var promise = deferred.promise;
 
-          if(SUMIATE_DATA_MODE){
+          if(AppConfig.SUMIATE_DATA_MODE){
             resultData = {
               src:"../../img/about.jpg",
               dsc:"Terry Richardson cardigan whatever gentrify Tumblr, gluten-free jean shorts cray Schlitz selvage DIY sustainable Helvetica sriracha.Banh mi ethical, put a bird on it VHS irony bicycle rights slow-carb literally retro skateboard ugh 90's Helvetica hashtag. Next level beard keffiyeh cornhole pork belly, slow-carb Schlitz. <br/><p>Revolutionary notebook with eco-friendly paper,advanced surface technology and digital sharing integration. </p>",
@@ -69,7 +69,7 @@
            * @param config
            */
           function handleError(data, status, headers, config){
-            resultData = CODE_CONFIG.OPERATE_FAIL;
+            resultData = CodeConfig.OPERATE_FAIL;
             deferred.reject(resultData);
           }
         }

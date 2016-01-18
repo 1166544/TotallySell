@@ -4,14 +4,14 @@
       .module('app.services')
       .service("ContactService", ContactService);
 
-    ContactService.$inject = ["$http", "$q", "CommonFactory", "BASE_CONFIG", "SUMIATE_DATA_MODE", "CODE_CONFIG"];
+    ContactService.$inject = ["$http", "$q", "CommonFactory", "BaseConfig", "AppConfig", "CodeConfig"];
 
     /**
      * CONTACT页面controller
      * @returns {{getContactData: getContactData}}
      * @constructor
      */
-    function ContactService($http, $q, CommonFactory, BASE_CONFIG, SUMIATE_DATA_MODE, CODE_CONFIG){
+    function ContactService($http, $q, CommonFactory, BaseConfig, AppConfig, CodeConfig){
 
         return{
           getContactData:getContactData
@@ -26,7 +26,7 @@
             var deferred = $q.defer();
             var promise = deferred.promise;
 
-            if(SUMIATE_DATA_MODE){
+            if(AppConfig.SUMIATE_DATA_MODE){
               resultData = [
                 {trafficName:"Bus", trafficeTime:"18:16", trafficDesc:"It was some time before he obtained any answer, and the reply, when made, was unpropitious."},
                 {trafficName:"Train", trafficeTime:"20:20", trafficDesc:"It was some time before he obtained any answer."},
@@ -62,7 +62,7 @@
              * @param config
              */
             function handleError(data, status, headers, config){
-              resultData = CODE_CONFIG.OPERATE_FAIL;
+              resultData = CodeConfig.OPERATE_FAIL;
               deferred.reject(resultData);
             }
         }

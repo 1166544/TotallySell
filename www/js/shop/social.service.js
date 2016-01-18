@@ -4,12 +4,12 @@
     .module('app.services')
     .service("SocialService", SocialService);
 
-  SocialService.$inject = ["$http", "$q", "CommonFactory", "BASE_CONFIG", "SUMIATE_DATA_MODE", "CODE_CONFIG"];
+  SocialService.$inject = ["$http", "$q", "CommonFactory", "BaseConfig", "AppConfig", "CodeConfig"];
   /**
    * 社交页面服务
    * @constructor
    */
-  function SocialService($http, $q, CommonFactory, BASE_CONFIG, SUMIATE_DATA_MODE, CODE_CONFIG)
+  function SocialService($http, $q, CommonFactory, BaseConfig, AppConfig, CodeConfig)
   {
       var socialList;
       return{
@@ -24,7 +24,7 @@
         var deferred = $q.defer();
         var promise = deferred.promise;
 
-        if(SUMIATE_DATA_MODE){
+        if(AppConfig.SUMIATE_DATA_MODE){
           resultData = [
             {link:'#tab/social/p1', src:"img/feed_1.jpg", time:"19min", title:"He may act like he wants a secretary but most of the time they're looking for...", dsc:"He may act like he wants a secretary but most of the time they're looking forHe may act like he wants a secretary but most of the time they're looking for...He may act like he wants a secretary but most of the time they're looking for...He may act like he wants a secretary but most of the time they're looking for...He may act like he wants a secretary but most of the time they're looking for......"},
             {link:'#tab/social/p2', src:"img/feed_3.jpg", time:"20min", title:"Peggy,just think about it.Deeply.Then forget it. And an idea will jump up in your face", dsc:"He may act like he wants a secretary but most of the time they're looking forHe may act like he wants a secretary but most of the time they're looking for...He may act like he wants a secretary but most of the time they're looking for...He may act like he wants a secretary but most of the time they're looking for...He may act like he wants a secretary but most of the time they're looking for......"},
@@ -63,7 +63,7 @@
          * @param config
          */
         function handleError(data, status, headers, config){
-          resultData = CODE_CONFIG.OPERATE_FAIL;
+          resultData = CodeConfig.OPERATE_FAIL;
           deferred.reject(resultData);
         }
 
@@ -74,7 +74,7 @@
         var resultData;
         var deferred = $q.defer();
         var promise = deferred.promise;
-        if(SUMIATE_DATA_MODE){
+        if(AppConfig.SUMIATE_DATA_MODE){
           resultData = {
             src:"img/top1.jpg",
             dsc:"My name is Peggy Olson and Iwanna smoke some marijuana."
@@ -114,7 +114,7 @@
          * @param config
          */
         function handleError(data, status, headers, config){
-          resultData = CODE_CONFIG.OPERATE_FAIL;
+          resultData = CodeConfig.OPERATE_FAIL;
           deferred.reject(resultData);
         }
 

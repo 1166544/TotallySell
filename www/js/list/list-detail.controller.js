@@ -4,14 +4,14 @@
     .module('app.controllers')
     .controller('ListDetailCtrl', ListDetailCtrl);
 
-  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CartService', 'CommonFactory', 'GOOD', 'UPDATE_CART', 'SUMIATE_DATA_MODE', 'CODE_CONFIG'];
+  ListDetailCtrl.$inject = ['$scope', '$state', 'ListService', 'CartService', 'CommonFactory', 'AppConfig', 'CodeConfig'];
   /**
    * 列表详细页面控制器
    * @param $scope
    * @param $state
    * @constructor
    */
-  function ListDetailCtrl($scope, $state, ListService, CartService, CommonFactory, GOOD, UPDATE_CART, SUMIATE_DATA_MODE, CODE_CONFIG)
+  function ListDetailCtrl($scope, $state, ListService, CartService, CommonFactory, AppConfig, CodeConfig)
   {
     // console.log($state.params.aId);
     var linkId = $state.params.aId;
@@ -25,13 +25,13 @@
     $scope.refreshNoteData = refreshNoteData;
     $scope.addToCart = addToCart;
 
-    if(SUMIATE_DATA_MODE){
+    if(AppConfig.SUMIATE_DATA_MODE){
         $scope.detailListData = ListService.getDetailListData(linkId);
-        $scope.customerNoteData = ListService.getCustomerNoteData(linkId, GOOD);
+        $scope.customerNoteData = ListService.getCustomerNoteData(linkId, AppConfig.GOOD);
     }
     else{
         ListService.getListPageDetailData(linkId, pName, pPrice).then(onDetailSuccess, onDetailFail);
-        ListService.getDetailNoteData(linkId, GOOD).then(onNoteDataSuccess, onDetailFail);
+        ListService.getDetailNoteData(linkId, AppConfig.GOOD).then(onNoteDataSuccess, onDetailFail);
     }
 
     /**
@@ -39,7 +39,7 @@
      * @param type
      */
     function refreshNoteData(type){
-      if(SUMIATE_DATA_MODE){
+      if(AppConfig.SUMIATE_DATA_MODE){
         $scope.customerNoteData = ListService.getCustomerNoteData(1, type);
       }
       else{
@@ -63,10 +63,10 @@
         color:$scope.detailListData.color,
         quality:1
       };
-      if(SUMIATE_DATA_MODE){
+      if(AppConfig.SUMIATE_DATA_MODE){
         // 跳至结算页面,并传入计算总价位参数
         CommonFactory.cartDataList.push(item);
-        $state.go("tab.cart", {aId:UPDATE_CART});
+        $state.go("tab.cart", {aId:AppConfig.UPDATE_CART});
       }
       else{
         // 将数据存入后台数据库,并传入计算总价位参数
@@ -80,11 +80,11 @@
      * @param result
      */
     function onAddSuccess(result){
-      if(result.code == CODE_CONFIG.OPERATE_SUCCESS.code){
-        $state.go("tab.cart", {aId:UPDATE_CART});
+      if(result.code == CodeConfig.OPERATE_SUCCESS.code){
+        $state.go("tab.cart", {aId:AppConfig.UPDATE_CART});
       }
       else{
-        console.log(CODE_CONFIG.OPERATE_FAIL.msg);
+        console.log(CodeConfig.OPERATE_FAIL.msg);
       }
     }
 

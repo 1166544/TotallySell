@@ -4,13 +4,13 @@
     .module('app.controllers')
     .controller('CartCtrl', CartCtrl);
 
-  CartCtrl.$inject = ["$scope", '$state', '$ionicActionSheet', 'CartService', 'CommonFactory', 'UPDATE_CART', 'SUMIATE_DATA_MODE', 'CODE_CONFIG'];
+  CartCtrl.$inject = ["$scope", '$state', '$ionicActionSheet', 'CartService', 'CommonFactory', 'AppConfig', 'CodeConfig'];
   /**
    * 购物车控制器
    * @param $scope
    * @constructor
    */
-  function CartCtrl($scope, $state, $ionicActionSheet, CartService, CommonFactory, UPDATE_CART, SUMIATE_DATA_MODE, CODE_CONFIG)
+  function CartCtrl($scope, $state, $ionicActionSheet, CartService, CommonFactory, AppConfig, CodeConfig)
   {
     // 定义购物车列表数据
     $scope.cartDataList = CommonFactory.cartDataList;
@@ -28,7 +28,7 @@
     $scope.editCart = editCart;
 
     // console.log($state.params.aId);
-    if(SUMIATE_DATA_MODE){
+    if(AppConfig.SUMIATE_DATA_MODE){
       countTotalCost();
     }
     else{
@@ -55,7 +55,7 @@
      */
     function emptyCart(){
 
-      if(!SUMIATE_DATA_MODE){
+      if(!AppConfig.SUMIATE_DATA_MODE){
         var hideSheet = $ionicActionSheet.show({
           buttons: [],
           destructiveText: 'Empty',
@@ -82,7 +82,7 @@
      */
     function deleteCartData(item){
 
-      if(!SUMIATE_DATA_MODE){
+      if(!AppConfig.SUMIATE_DATA_MODE){
         var hideSheet = $ionicActionSheet.show({
           buttons: [],
           destructiveText: 'Delete',
@@ -109,7 +109,7 @@
      */
     function onClearSuccess(result){
 
-      if(result.code == CODE_CONFIG.OPERATE_SUCCESS.code){
+      if(result.code == CodeConfig.OPERATE_SUCCESS.code){
         var i;
         var total = $scope.cartDataList.length;
         var item;
@@ -128,7 +128,7 @@
      */
     function onDeleteSuccess(result){
 
-      if(result.code == CODE_CONFIG.OPERATE_SUCCESS.code){
+      if(result.code == CodeConfig.OPERATE_SUCCESS.code){
         var i;
         var total = $scope.cartDataList.length;
         var item;
@@ -158,7 +158,7 @@
      * @param result
      */
     function onCartFail(result){
-      console.log(CODE_CONFIG.OPERATE_FAIL.msg);
+      console.log(CodeConfig.OPERATE_FAIL.msg);
     }
 
     /**

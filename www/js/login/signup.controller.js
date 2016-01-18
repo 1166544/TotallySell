@@ -4,13 +4,13 @@
     .module('app.controllers')
     .controller('SignUpCtrl', SignupCtrl);
 
-  SignupCtrl.$inject = ["$scope", "$state", "SignUpService", "CODE_CONFIG"];
+  SignupCtrl.$inject = ["$scope", "$state", "SignUpService", "CodeConfig"];
   /**
    * 注册新用户逻辑
    * @param $scope
    * @constructor
    */
-  function SignupCtrl($scope, $state, SignUpService, CODE_CONFIG) {
+  function SignupCtrl($scope, $state, SignUpService, CodeConfig) {
 
     /**
      * 表单提交数据
@@ -53,15 +53,15 @@
 
     function signUpResult(result){
 
-      var success = CODE_CONFIG.LOGIN_SUCCESS;
-      var fail = CODE_CONFIG.USER_EXISTS;
+      var success = CodeConfig.LOGIN_SUCCESS;
+      var fail = CodeConfig.USER_EXISTS;
 
       switch(result.code){
-        case CODE_CONFIG.USER_EXISTS.code:
+        case CodeConfig.USER_EXISTS.code:
           // 提示用户已存在
           $scope.signUpData.userExists = true;
           break;
-        case CODE_CONFIG.LOGIN_SUCCESS.code:
+        case CodeConfig.LOGIN_SUCCESS.code:
           // 成功创建用户,跳转至主页面
           $state.go("tab.dash");
           $scope.reset();

@@ -360,7 +360,10 @@
 }
 
 .messages li:nth-child(even) p {
-  background:#158ffe;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #0a9dc7;
+  background:#11c1f3;
   color:#fff;
 }
 
@@ -368,4 +371,9 @@
   display:block;
   max-width:65%;
   border-radius:.75rem;
+}
+
+.inputItem{
+  width: 100%;
+  background: transparent;
 }

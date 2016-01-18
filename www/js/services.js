@@ -1,14 +1,14 @@
 (function() {
-  angular.module('app.services', ['app.controllers'])
-
+  angular
+    .module('app.services', ['app.controllers'])
     .factory('CommonFactory', CommonFactory);
 
-  CommonFactory.$inject = ["GOOD","MIDDLE","BAD", "BASE_CONFIG"];
+  CommonFactory.$inject = ["AppConfig", "BaseConfig"];
   /**
    * 公用服务内容
    * @constructor
    */
-  function CommonFactory(GOOD, MIDDLE, BAD, BASE_CONFIG) {
+  function CommonFactory(AppConfig, BaseConfig) {
 
       // 当前玩家信息
       var user;
@@ -97,7 +97,7 @@
        * @returns {*}
        */
       function getServerUrl(url){
-        return BASE_CONFIG.serverUrl + url;
+        return BaseConfig.serverUrl + url;
       }
 
       /**
@@ -130,9 +130,9 @@
        */
       function getNoteComitList(){
         return [
-          {label:GOOD.toLocaleUpperCase(), data:GOOD},
-          {label:MIDDLE.toLocaleUpperCase(), data:MIDDLE},
-          {label:BAD.toLocaleUpperCase(), data:BAD}
+          {label:AppConfig.GOOD.toLocaleUpperCase(),    data:AppConfig.GOOD},
+          {label:AppConfig.MIDDLE.toLocaleUpperCase(),  data:AppConfig.MIDDLE},
+          {label:AppConfig.BAD.toLocaleUpperCase(),     data:AppConfig.BAD}
         ];
       }
 

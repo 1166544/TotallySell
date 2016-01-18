@@ -4,18 +4,18 @@
       .module('app.services')
       .service('CartService', CartService);
 
-    CartService.$inject = ["$http", "$q", "CommonFactory", "BASE_CONFIG", "CODE_CONFIG"];
+    CartService.$inject = ["$http", "$q", "CommonFactory", "BaseConfig", "CodeConfig"];
 
     /**
      * 购物车页面服务
      * @param $http
      * @param $q
      * @param CommonFactory
-     * @param BASE_CONFIG
-     * @param CODE_CONFIG
+     * @param BaseConfig
+     * @param CodeConfig
      * @constructor
      */
-    function CartService($http, $q, CommonFactory, BASE_CONFIG, CODE_CONFIG){
+    function CartService($http, $q, CommonFactory, BaseConfig, CodeConfig){
 
         var editItem;
 
@@ -65,7 +65,7 @@
             item.productId = item.id;
           }
 
-          $http.post(CommonFactory.getServerUrl("p/cart/addCartData"), item, BASE_CONFIG.headers)
+          $http.post(CommonFactory.getServerUrl("p/cart/addCartData"), item, BaseConfig.headers)
             .success(handleSuccess)
             .error(handleError);
           return promise;
@@ -90,7 +90,7 @@
            * @param config
            */
           function handleError(data, status, headers, config){
-            resultData = CODE_CONFIG.OPERATE_FAIL;
+            resultData = CodeConfig.OPERATE_FAIL;
             deferred.reject(resultData);
           }
 
@@ -131,7 +131,7 @@
            * @param config
            */
           function handleError(data, status, headers, config){
-            resultData = CODE_CONFIG.OPERATE_FAIL;
+            resultData = CodeConfig.OPERATE_FAIL;
             deferred.reject(resultData);
           }
         }
@@ -149,7 +149,7 @@
             productId:item.id,
             userId:CommonFactory.getUserLoginInfo().id
           };
-          $http.post(CommonFactory.getServerUrl("p/cart/deleteCartData"), params, BASE_CONFIG.headers)
+          $http.post(CommonFactory.getServerUrl("p/cart/deleteCartData"), params, BaseConfig.headers)
             .success(handleSuccess)
             .error(handleError);
           return promise;
@@ -175,7 +175,7 @@
            * @param config
            */
           function handleError(data, status, headers, config){
-            resultData = CODE_CONFIG.OPERATE_FAIL;
+            resultData = CodeConfig.OPERATE_FAIL;
             deferred.reject(resultData);
           }
 
@@ -194,7 +194,7 @@
           var params = {
             userId:CommonFactory.getUserLoginInfo().id
           };
-          $http.post(CommonFactory.getServerUrl("p/cart/clearCartData"), params, BASE_CONFIG.headers)
+          $http.post(CommonFactory.getServerUrl("p/cart/clearCartData"), params, BaseConfig.headers)
             .success(handleSuccess)
             .error(handleError);
           return promise;
@@ -219,7 +219,7 @@
            * @param config
            */
           function handleError(data, status, headers, config){
-            resultData = CODE_CONFIG.OPERATE_FAIL;
+            resultData = CodeConfig.OPERATE_FAIL;
             deferred.reject(resultData);
           }
 
@@ -239,7 +239,7 @@
                 item.userId = CommonFactory.getUserLoginInfo().id;
             }
 
-            $http.post(CommonFactory.getServerUrl("p/cart/updateCartData"), item, BASE_CONFIG.headers)
+            $http.post(CommonFactory.getServerUrl("p/cart/updateCartData"), item, BaseConfig.headers)
               .success(handleSuccess)
               .error(handleError);
             return promise;
@@ -264,7 +264,7 @@
              * @param config
              */
             function handleError(data, status, headers, config){
-              resultData = CODE_CONFIG.OPERATE_FAIL;
+              resultData = CodeConfig.OPERATE_FAIL;
               deferred.reject(resultData);
             }
 

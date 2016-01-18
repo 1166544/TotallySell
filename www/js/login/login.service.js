@@ -4,13 +4,13 @@
     .module('app.services')
     .service('LoginService', LoginService);
 
-  LoginService.$inject = ["$http", "$q", "CommonFactory", "SUMIATE_DATA_MODE", "BASE_CONFIG"];
+  LoginService.$inject = ["$http", "$q", "CommonFactory", "AppConfig", "BaseConfig"];
   /**
    * 登录服务
    * @returns {{login: Function}}
    * @constructor
    */
-  function LoginService($http, $q, CommonFactory, SUMIATE_DATA_MODE, BASE_CONFIG) {
+  function LoginService($http, $q, CommonFactory, AppConfig, BaseConfig) {
     return {
       login:login
     }
@@ -22,7 +22,7 @@
       var promise = deferred.promise;
 
       // 模拟数据
-      if(SUMIATE_DATA_MODE)
+      if(AppConfig.SUMIATE_DATA_MODE)
       {
 
         if (userName === "xxd" && password === "xxd") {
@@ -44,7 +44,7 @@
           password : md5(password)
         };
 
-        $http.post(CommonFactory.getServerUrl("p/users/loginUser"), parms, BASE_CONFIG.headers)
+        $http.post(CommonFactory.getServerUrl("p/users/loginUser"), parms, BaseConfig.headers)
           .success(handleSuccess)
           .error(handleError);
         return promise;

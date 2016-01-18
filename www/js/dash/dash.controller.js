@@ -4,7 +4,7 @@
     .module('app.controllers')
     .controller('DashCtrl', DashCtrl);
 
-  DashCtrl.$inject = ["$scope", "DashService", "TOP", "BOTTOM"];
+  DashCtrl.$inject = ["$scope", "DashService", "AppConfig"];
 
   /**
    * 主页面控制器
@@ -14,10 +14,10 @@
    * @param BOTTOM
    * @constructor
    */
-  function DashCtrl($scope, DashService, TOP, BOTTOM) {
+  function DashCtrl($scope, DashService, AppConfig) {
 
-    DashService.getSideItemData(TOP).then(getSideItemDataResult, getSideItemDataError);
-    DashService.getSideItemData(BOTTOM).then(getSideItemDataBottomResult, getSideItemDataBottomError);
+    DashService.getSideItemData(AppConfig.TOP).then(getSideItemDataResult, getSideItemDataError);
+    DashService.getSideItemData(AppConfig.BOTTOM).then(getSideItemDataBottomResult, getSideItemDataBottomError);
     DashService.getTypeListData().then(getTypeListDataResult, getTypeListDataError);
 
     function getSideItemDataResult(result){
