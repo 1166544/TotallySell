@@ -56,6 +56,17 @@ angular.module('app.routes', [])
       }
     })
 
+    .state('tab.chat', {
+      url: '/chat',
+      cache: false,
+      views: {
+        'tab-chat': {
+          templateUrl: 'templates/tab-chat.html',
+          controller: 'ChatCtrl'
+        }
+      }
+    })
+
     // 更改所购买产品颜色/数量等参数页面
     .state('tab.cartEdit', {
       url: '/cartEdit/:aId',
