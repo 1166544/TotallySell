@@ -76,6 +76,7 @@
         function send() {
 
           if(!AppConfig.SUMIATE_DATA_MODE){
+            if(vm.inputMsg === '' || vm.inputMsg === null) return;
             ChatService.emit(SocketConst.SOCKET_MESSAGE, {channel:SocketConst.CHAT_GLOBAL, protocol:Protocol.CLIENT_001, message:vm.inputMsg});
             vm.inputMsg = "";
           }
