@@ -2,7 +2,8 @@
 
     <ion-content class="padding">
       <ol class="messages">
-        <li ng-repeat="message in messages" ng-bind-html="message.content"></li>
+        <li ng-repeat="message in messages" ng-bind-html="message.content" ng-class="message.selfMessage ? 'messages-self' : 'message-normal'">
+        </li>
       </ol>
     </ion-content>
 

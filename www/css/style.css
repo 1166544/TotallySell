@@ -342,12 +342,20 @@
   padding:0;
 }
 
-.messages li:nth-child(even) {
+.messages-self {
   float:right;
 }
 
-.messages li:nth-child(even) img {
+.messages-self img {
   float:right;
+}
+
+.message-normal {
+  float:left;
+}
+
+.message-normal img {
+  float:left;
 }
 
 .messages p {
@@ -359,7 +367,7 @@
   font-size:.875rem;
 }
 
-.messages li:nth-child(even) p {
+.messages-self p {
   border-bottom-style: solid;
   border-width: 1px;
   border-color: #0a9dc7;

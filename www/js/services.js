@@ -3,15 +3,15 @@
     .module('app.services', ['app.controllers'])
     .factory('CommonFactory', CommonFactory);
 
-  CommonFactory.$inject = ["AppConfig", "BaseConfig"];
+  CommonFactory.$inject = ["$rootScope", "AppConfig", "BaseConfig"];
   /**
    * 公用服务内容
    * @constructor
    */
-  function CommonFactory(AppConfig, BaseConfig) {
+  function CommonFactory($rootScope, AppConfig, BaseConfig) {
 
       // 当前玩家信息
-      var user;
+      $rootScope.user = null;
 
       return {
         /**
@@ -141,7 +141,8 @@
        * @param userInfo
        */
       function saveUserLoginInfo(userInfo){
-        user = userInfo;
+        $rootScope.user = userInfo;
+        console.log($rootScope.user);
       }
 
       /**
@@ -149,19 +150,19 @@
        * @returns {*}
        */
       function getUserLoginInfo(){
-        if(!user){
+        if($rootScope.user === null){
           var user = {};
           user.id = 4;
           return user;
         }
-        return user;
+        return $rootScope.user;
       }
 
       /**
        * 清除存前玩家登录状态
        */
       function clearUserInfo(){
-        user = null;
+        $rootScope.user = null;
       }
   }
 })();

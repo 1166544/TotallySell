@@ -4,7 +4,7 @@
       .module('app.controllers')
       .controller('ChatCtrl', ChatController);
 
-    ChatController.$inject = ['$scope', '$ionicFrostedDelegate', '$ionicScrollDelegate', '$rootScope', 'ChatService', 'AppConfig', 'SocketConst', 'Protocol'];
+    ChatController.$inject = ['$scope', '$ionicFrostedDelegate', '$ionicScrollDelegate', '$rootScope', 'CommonFactory', 'ChatService', 'AppConfig', 'SocketConst', 'Protocol'];
 
     /**
      * 聊天控制器
@@ -15,11 +15,12 @@
      * @param ChatService
      * @constructor
      */
-    function ChatController($scope, $ionicFrostedDelegate, $ionicScrollDelegate, $rootScope, ChatService, AppConfig, SocketConst, Protocol){
+    function ChatController($scope, $ionicFrostedDelegate, $ionicScrollDelegate, $rootScope, CommonFactory, ChatService, AppConfig, SocketConst, Protocol){
 
         var vm = $scope;
         vm.inputMsg = "";
         vm.send = send;
+        vm.isSocketConnected = false;
 
         // 检测SOCKET连接
         connectSocket();
@@ -30,10 +31,12 @@
         function connectSocket(){
 
           if(!AppConfig.SUMIATE_DATA_MODE){
-            vm.messages = [];
-            ChatService.on(SocketConst.SOCKET_OPEN, onSocketOpen);
-            ChatService.on(SocketConst.SOCKET_SYSTEM, onSocketSystem);
-            ChatService.on(SocketConst.SOCKET_MESSAGE, onSocketMessage);
+            if(!vm.isSocketConnected){
+              vm.messages = [];
+              ChatService.on(SocketConst.SOCKET_OPEN, onSocketOpen);
+              ChatService.on(SocketConst.SOCKET_SYSTEM, onSocketSystem);
+              ChatService.on(SocketConst.SOCKET_MESSAGE, onSocketMessage);
+            }
           }
           else{
             sumiateMessage();
@@ -42,10 +45,19 @@
         };
 
         /**
-         * SOCKET连接成功处理
+         * SOCKET连接成功处理,注册用户
          */
         function onSocketOpen(){
-          console.log('logined');
+          console.log('Socket Connected!');
+          vm.isSocketConnected = true;
+          var userInfo = CommonFactory.getUserLoginInfo();
+          var user = {
+            id:userInfo.id,
+            name:userInfo.name,
+            unionId:0,
+            teamId:0
+          }
+          ChatService.sendToGlobal(Protocol.CLIENT_001, user);
         };
 
         /**
@@ -62,8 +74,16 @@
          */
         function onSocketMessage(json){
 
-          console.log(json);
-          vm.messages.push({ content: '<p>' + json.text.message + '</p>'});
+          // TODO:作消息管理器，比如聊天，协议处理..
+          // console.log(json);
+          var selfMessage = false;
+          if(json.hasOwnProperty(SocketConst.CHAT_AUTHOR)){
+            var selfId = json[SocketConst.CHAT_AUTHOR];
+            if(selfId == CommonFactory.getUserLoginInfo().id){
+              selfMessage = true;
+            }
+          }
+          vm.messages.push({ content: json.time + '<br/><p>' + json.text.message + '</p>', selfMessage: selfMessage});
 
           $ionicFrostedDelegate.update();
           $ionicScrollDelegate.scrollBottom(true);
@@ -77,7 +97,7 @@
 
           if(!AppConfig.SUMIATE_DATA_MODE){
             if(vm.inputMsg === '' || vm.inputMsg === null) return;
-            ChatService.emit(SocketConst.SOCKET_MESSAGE, {channel:SocketConst.CHAT_GLOBAL, protocol:Protocol.CLIENT_001, message:vm.inputMsg});
+            ChatService.sendToGlobal(Protocol.CLIENT_002, vm.inputMsg);
             vm.inputMsg = "";
           }
           else{
