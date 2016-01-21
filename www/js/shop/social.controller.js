@@ -4,14 +4,14 @@
     .module('app.controllers')
     .controller('SocialCtrl', SocialCtrl);
 
-  SocialCtrl.$inject = ["$scope","SocialService", "AppConfig"];
+  SocialCtrl.$inject = ["$scope","SocialService", "$state", "AppConfig"];
   /**
    * 社交页面控制器
    * @param $scope
    * @param SocialService
    * @constructor
    */
-  function SocialCtrl($scope, SocialService, AppConfig) {
+  function SocialCtrl($scope, SocialService, $state, AppConfig) {
 
       $scope.doRefresh = doRefresh;
 

@@ -3,11 +3,12 @@
   <ion-content padding="'true'" class="has-header">
 
     <!--搜索栏 -->
-    <div class="item-input-inset">
+    <div class="item item-input-inset item-search">
       <label class="item-input-wrapper">
-        <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" ng-model="query" placeholder="Search">
+        <input type="text" class="inputItem" ng-model="serachStr" placeholder="Pls enter message here.">
       </label>
+      <button class="button button-small button-calm ion-ios-search" ng-click="doSearch()">
+      </button>
     </div>
 
     <!--顶边BANNER-->

@@ -385,3 +385,7 @@
   width: 100%;
   background: transparent;
 }
+
+.item-search{
+  border: none;
+}
