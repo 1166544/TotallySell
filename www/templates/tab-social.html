@@ -1,6 +1,8 @@
 <ion-view view-title="Social">
   <ion-content>
 
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
     <img src="{{mainData.src}}">
     <p class="total-banner-cells-p total-banner-title-p">{{mainData.dsc}}</p>
     <ion-list>

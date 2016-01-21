@@ -4,17 +4,25 @@
     .module('app.controllers')
     .controller('SocialCtrl', SocialCtrl);
 
-  SocialCtrl.$inject = ["$scope","SocialService"];
+  SocialCtrl.$inject = ["$scope","SocialService", "AppConfig"];
   /**
    * 社交页面控制器
    * @param $scope
    * @param SocialService
    * @constructor
    */
-  function SocialCtrl($scope, SocialService) {
+  function SocialCtrl($scope, SocialService, AppConfig) {
 
-      SocialService.getSocialListData().then(onSocialListSuccess, onSocialListFail);
-      SocialService.getMinData().then(onMainDataSuccess, onMainDataFail);
+      $scope.doRefresh = doRefresh;
+
+      if(!AppConfig.SUMIATE_DATA_MODE){
+        doRefresh();
+      }
+
+      function doRefresh(){
+        SocialService.getSocialListData().then(onSocialListSuccess, onSocialListFail);
+        SocialService.getMinData().then(onMainDataSuccess, onMainDataFail);
+      }
 
       /**
        * 返回SocialList成功处理
@@ -38,6 +46,7 @@
        */
       function onMainDataSuccess(result){
         $scope.mainData = result;
+        $scope.$broadcast('scroll.refreshComplete');
       }
 
       /**
@@ -46,6 +55,7 @@
        */
       function onMainDataFail(result){
         $scope.mainData = result;
+        $scope.$broadcast('scroll.refreshComplete');
       }
   }
 })();
