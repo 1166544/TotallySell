@@ -8,7 +8,7 @@
         return {
           restrict:"E",
           scope:{
-            item:"=data"
+            item: "=data"
           },
           controller:function($scope){
             // 转换尺寸简写

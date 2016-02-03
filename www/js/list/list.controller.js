@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
   angular
     .module('app.controllers')
@@ -13,12 +13,12 @@
    */
   function ListCtrl($scope, $state, ListService, AppConfig) {
 
-    if(AppConfig.SUMIATE_DATA_MODE){
+    if (AppConfig.SUMIATE_DATA_MODE) {
       // console.log($state.params.aId);
       $scope.listData = ListService.getListData($state.params.aId);
       $scope.listProductData = ListService.getListProductData($state.params.aId);
     }
-    else{
+    else {
       ListService.getListPageData($state.params.aId).then(onPgeDataSuccess, onPageDataFail);
     }
 
@@ -26,7 +26,7 @@
      * 拿列表数据成功
      * @param result
      */
-    function onPgeDataSuccess(result){
+    function onPgeDataSuccess(result) {
       $scope.listData = result.sideData;
       $scope.listProductData = result.listData;
     }
@@ -35,7 +35,7 @@
      * 拿列表数据失败
      * @param result
      */
-    function onPageDataFail(result){
+    function onPageDataFail(result) {
       // hole
     }
 
